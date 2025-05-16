@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Setup Proton environment
+export PROTON="/$directory/windows/.proton/bin"
+export PROTONLIB32="/$directory/windows/.proton/lib32"
+export PROTONLIB64="/$directory/windows/.proton/lib64"
+export PATH="$PROTON:$PATH"
+export WINEDEBUG=-all
+export WINEPREFIX=~/".proton64"
+export WINEARCH=win64
+export BOX=box64
+export WINE=wine64
+if [ ! -d "$WINEPREFIX" ]; then
+    export PROTON_USE_WOW64=1
+    $BOX $WINE wineboot
+fi
+
+if file "$EXEC" | grep -q "PE32" && ! file "$EXEC" | grep -q "PE32+"; then
+    export PROTON_USE_WOW64=1
+fi

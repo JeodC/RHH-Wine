@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gamelist>
+	<game>
+		<path>./The Murder of Sonic The Hedgehog.sh</path>
+		<name>The Murder of Sonic the Hedgehog</name>
+		<desc>Sonic the Hedgehog...was murdered!? Get to the bottom of the mystery in this brand-new adventure!</desc>
+		<image>./tmosonic/cover.png</image>
+		<releasedate>20230331</releasedate>
+		<developer>SEGA</developer>
+		<genre>Casual, Free To Play, Indie, Simulation</genre>
+	</game>
+</gamelist>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gamelist>
+	<game>
+		<path>./Tomb Raider I-III Remastered.sh</path>
+		<name>Tomb Raider I-III Remastered</name>
+		<image>./tombraider1-3/cover.png</image>
+        <desc>Play the original three Tomb Raider adventures with all expansions and secret levels in this definitive collection.</desc>
+		<releasedate>20240214</releasedate>
+		<developer>Aspyr, Crystal Dynamics</developer>
+		<genre>Action, Adventure</genre>
+	</game>
+</gamelist>

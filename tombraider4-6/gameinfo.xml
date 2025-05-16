@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gamelist>
+	<game>
+		<path>./Tomb Raider IV-VI Remastered.sh</path>
+		<name>Tomb Raider IV-VI Remastered</name>
+		<image>./tombraider4-6/cover.png</image>
+        <desc>Her legacy lives on! Play the next series of Tomb Raider adventures in this remastered collection of Lara Croft's darkest adventures.</desc>
+		<releasedate>20250214</releasedate>
+		<developer>Aspyr, Crystal Dynamics</developer>
+		<genre>Action, Adventure</genre>
+	</game>
+</gamelist>
