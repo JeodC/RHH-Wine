@@ -38,8 +38,8 @@ export SDL_GAMECONTROLLERCONFIG="$sdl_controllerconfig"
 
 # Config Setup
 mkdir -p $GAMEDIR/config
-bind_directories "$WINEPREFIX/drive_c/users/root/AppData/Roaming/Cuphead" "$GAMEDIR/config"
-bind_directories "$WINEPREFIX/drive_c/users/root/AppData/LocalLow/Studio MDHR/Cuphead" "$GAMEDIR/config"
+bind_directories "$WINEPREFIX/drive_c/users/steamuser/AppData/Roaming/Cuphead" "$GAMEDIR/config"
+bind_directories "$WINEPREFIX/drive_c/users/steamuser/AppData/LocalLow/Studio MDHR/Cuphead" "$GAMEDIR/config"
 
 # Run the game
 $GPTOKEYB "$BASE" -c "$GAMEDIR/cuphead.gptk" &

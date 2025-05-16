@@ -1,9 +1,13 @@
 #!/bin/bash
 
+XDG_DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
+
 if [ -d "/opt/system/Tools/PortMaster/" ]; then
   controlfolder="/opt/system/Tools/PortMaster"
 elif [ -d "/opt/tools/PortMaster/" ]; then
   controlfolder="/opt/tools/PortMaster"
+elif [ -d "$XDG_DATA_HOME/PortMaster/" ]; then
+  controlfolder="$XDG_DATA_HOME/PortMaster"
 else
   controlfolder="/roms/ports/PortMaster"
 fi
@@ -40,7 +44,7 @@ export TEXTINPUTADDEXTRASYMBOLS="Y"    # enables additional symbols for interact
 
 # Config Setup
 mkdir -p $GAMEDIR/config
-bind_directories "$WINEPREFIX/drive_c/users/root/AppData/LocalLow/Sonic Social/The Murder of Sonic The Hedgehog" "$GAMEDIR/config"
+bind_directories "$WINEPREFIX/drive_c/users/steamuser/AppData/LocalLow/Sonic Social/The Murder of Sonic The Hedgehog" "$GAMEDIR/config"
 
 # Run the game
 $GPTOKEYB "$BASE" -c "$GAMEDIR/tmosonic.gptk" &

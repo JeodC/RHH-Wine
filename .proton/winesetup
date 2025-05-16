@@ -2,8 +2,8 @@
 
 # Setup Proton environment
 export PROTON="/$directory/windows/.proton/bin"
+export PROTONDIR="/$directory/windows/.proton"
 export PROTONLIB32="/$directory/windows/.proton/lib32"
-export PROTONLIB64="/$directory/windows/.proton/lib64"
 export PATH="$PROTON:$PATH"
 export WINEDEBUG=-all
 export WINEPREFIX=~/".proton64"
@@ -13,8 +13,20 @@ export WINE=wine64
 if [ ! -d "$WINEPREFIX" ]; then
     export PROTON_USE_WOW64=1
     $BOX $WINE wineboot
+    export NEWPREFIX=1
+else
+    export NEWPREFIX=0
 fi
 
 if file "$EXEC" | grep -q "PE32" && ! file "$EXEC" | grep -q "PE32+"; then
     export PROTON_USE_WOW64=1
+fi
+
+# Copy vkd3d files to the prefix if applicable (Proton-GE)
+if [ -z "$NEWPREFIX" ] && [ -d "$PROTONDIR/lib/vkd3d/x86_64-windows" ]; then
+    cp -v "$PROTONDIR/lib/vkd3d/x86_64-windows"/*.dll "$WINEPREFIX/drive_c/windows/system32/"
+fi
+
+if [ -z "$NEWPREFIX" ] && [ -d "$PROTONDIR/lib/vkd3d/i386-windows" ]; then
+    cp -v "$PROTONDIR/lib/vkd3d/i386-windows"/*.dll "$WINEPREFIX/drive_c/windows/syswow64/"
 fi

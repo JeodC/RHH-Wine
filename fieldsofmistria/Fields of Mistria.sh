@@ -41,7 +41,7 @@ fi
 
 # Config Setup
 mkdir -p $GAMEDIR/config
-bind_directories "$WINEPREFIX/drive_c/users/root/AppData/Local/FieldsOfMistria" "$GAMEDIR/config"
+bind_directories "$WINEPREFIX/drive_c/users/steamuser/AppData/Local/FieldsOfMistria" "$GAMEDIR/config"
 
 # Run the game
 $GPTOKEYB "$BASE" -c "$GAMEDIR/mistria.gptk" &
