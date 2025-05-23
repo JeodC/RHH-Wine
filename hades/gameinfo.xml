@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gamelist>
+	<game>
+		<path>./Hades.sh</path>
+		<name>Hades</name>
+		<desc>Defy the god of the dead as you battle out of the Underworld in this rogue-like dungeon crawler from the creators of Bastion and Transistor.</desc>
+		<image>./hades/cover.png</image>
+		<releasedate>20200917</releasedate>
+		<developer>Supergiant Games</developer>
+		<genre>Action, Roguelike</genre>
+	</game>
+</gamelist>
