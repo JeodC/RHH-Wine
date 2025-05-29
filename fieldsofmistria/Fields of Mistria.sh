@@ -28,7 +28,7 @@ cd $GAMEDIR
 
 # Display loading splash
 chmod 777 $SPLASH
-$SPLASH "$GAMEDIR/splash.png" 30000 &
+$SPLASH "$GAMEDIR/splash.png" 50000 &
 
 # Source winesetup
 source "/$directory/windows/.proton/winesetup"
@@ -42,6 +42,21 @@ fi
 # Config Setup
 mkdir -p $GAMEDIR/config
 bind_directories "$WINEPREFIX/drive_c/users/steamuser/AppData/Local/FieldsOfMistria" "$GAMEDIR/config"
+
+swapabxy() {
+    # Swap A/B and X/Y in SDL_GAMECONTROLLERCONFIG
+    export SDL_GAMECONTROLLERCONFIG="$sdl_controllerconfig"
+    if [ -n "$SDL_GAMECONTROLLERCONFIG" ] && [ -x "$GAMEDIR/tools/swapabxy.py" ]; then
+        export SDL_GAMECONTROLLERCONFIG="$(echo "$SDL_GAMECONTROLLERCONFIG" | "$GAMEDIR/tools/swapabxy.py")"
+    else
+        echo "swapabxy: SDL_GAMECONTROLLERCONFIG is empty or swapabxy.py is not executable"
+    fi
+}
+
+# Swap buttons only if swapabxy.txt exists
+if [ -f "$GAMEDIR/tools/swapabxy.txt" ]; then
+    swapabxy
+fi
 
 # Run the game
 $GPTOKEYB "$BASE" -c "$GAMEDIR/mistria.gptk" &
