@@ -1,4 +1,4 @@
-# PortMaster - Wine Project
+# Retro Handheld Wine Project
 
 This repository hosts all of the DRM-free games that are proven to work with Proton-GE. Proton-GE was chosen due to its better compatibility and performance. Everything in this repository is meant to work with linux aarch64 systems such as the later Retroid Pocket and Odin family. To use these wine game wrappers as-is, you must copy the `.proton` folder from this repository to `roms/windows`. Then, download the Proton build of your choice from https://github.com/GloriousEggroll/proton-ge-custom/releases and extract all subfolders to the `.proton` folder. If done correctly your folder structure will look as such.
 
