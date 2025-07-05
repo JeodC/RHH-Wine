@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gamelist>
+	<game>
+		<path>./Backpack Hero.sh</path>
+		<name>Backpack Hero</name>
+		<desc>The inventory management roguelike! Collect rare items, organize your backpack, and vanquish your foes!</desc>
+		<image>./backpackhero/cover.png</image>
+		<releasedate>20231114</releasedate>
+		<developer>Jaspel</developer>
+		<genre>Adventure, Casual, Indie, RPG, Strategy</genre>
+	</game>
+</gamelist>
