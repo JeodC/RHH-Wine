@@ -17,9 +17,9 @@ source $controlfolder/control.txt
 get_controls
 
 # Variables
-GAMEDIR="/$directory/windows/hades"
+GAMEDIR="/$directory/windows/vampiresurvivors"
 SPLASH="/$directory/windows/.proton/tools/splash"
-EXEC="$GAMEDIR/data/x64Vk/Hades.exe"
+EXEC="$GAMEDIR/data/VampireSurvivors.exe"
 BASE=$(basename "$EXEC")
 
 # CD and set log
@@ -38,11 +38,22 @@ export SDL_GAMECONTROLLERCONFIG="$sdl_controllerconfig"
 
 # Config Setup
 mkdir -p $GAMEDIR/config
-bind_directories "$WINEPREFIX/drive_c/users/steamuser/Documents/Saved Games/Hades" "$GAMEDIR/config"
+bind_directories "$WINEPREFIX/drive_c/users/steamuser/AppData/Roaming/Vampire_Survivors_EGS" "$GAMEDIR/config"
 
 # Run the game
-$GPTOKEYB "$BASE" -c "$GAMEDIR/hades.gptk" &
+echo "[INFO] Disabling Wi-Fi for offline gameplay"
+ip link set wlan0 down
+
+$GPTOKEYB "$BASE" -c "$GAMEDIR/vampire.gptk" &
 $BOX $PROTON/$WINE "$EXEC"
+GAMEPID=$!
+
+wait $GAMEPID
+
+echo "[INFO] Re-enabling Wi-Fi after game exit"
+ip link set wlan0 up
+
+
 
 # Kill processes
 wineserver -k

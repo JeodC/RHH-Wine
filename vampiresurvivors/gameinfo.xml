@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gamelist>
+	<game>
+		<path>./Vampire Survivors.sh</path>
+		<name>Vampire Survivors</name>
+		<desc>Mow down thousands of night creatures and survive until dawn in Vampire Survivors, a gothic horror casual game with roguelite elements. There’s no place to hide — all you can do is try to survive a cursed night and get as much gold as possible for the next survivor.</desc>
+		<image>./vampire_survivors/cover.png</image>
+		<releasedate>20221020</releasedate>
+		<developer>Poncle</developer>
+		<genre>Action, Roguelite</genre>
+	</game>
+</gamelist>
