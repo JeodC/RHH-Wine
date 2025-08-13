@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gamelist>
+	<game>
+		<path>./TOEM.sh</path>
+		<name>TOEM</name>
+		<desc>Set off on a delightful expedition and use your photographic eye to uncover the mysteries of the magical TOEM in this hand-drawn adventure game. Chat with quirky characters, solve their problems by snapping neat photos, and make your way through a relaxing landscape!</desc>
+		<image>./hollow_knight/cover.png</image>
+		<releasedate>20210917</releasedate>
+		<developer>Something We Made</developer>
+		<genre>Puzzle, Adventure</genre>
+	</game>
+</gamelist>
