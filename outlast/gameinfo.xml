@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gamelist>
+	<game>
+		<path>./Outlast.sh</path>
+		<name>Outlast</name>
+		<desc>Hell is an experiment you can't survive in Outlast, a first-person survival horror game developed by veterans of some of the biggest game franchises in history. As investigative journalist Miles Upshur, explore Mount Massive Asylum and try to survive long enough to discover its terrible secret... if you dare.</desc>
+		<releasedate>20130904</releasedate>
+		<developer>Red Barrels</developer>
+		<genre>Horror, Survival</genre>
+	</game>
+</gamelist>
