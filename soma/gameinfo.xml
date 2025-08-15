@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gamelist>
+	<game>
+		<path>./SOMA.sh</path>
+		<name>SOMA</name>
+		<desc>From the creators of Amnesia: The Dark Descent comes SOMA, a sci-fi horror game set below the waves of the Atlantic ocean. Struggle to survive a hostile world that will make you question your very existence. </desc>
+		<releasedate>20150922</releasedate>
+		<developer>Frictional Games</developer>
+		<genre>Horror, Psychological</genre>
+	</game>
+</gamelist>

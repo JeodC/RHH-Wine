@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gamelist>
+	<game>
+		<path>./Shelter 2.sh</path>
+		<name>Shelter 2</name>
+		<desc>As a powerful Lynx, you will make your way through vast open landscapes. In the harsh tundra, you will raise and strengthen your cubs by mastering your skills for hunting prey. Do everything you can to prepare your little ones for the vicious entities dwelling in the wilderness. </desc>
+		<releasedate>20150309</releasedate>
+		<developer>Might and Delight</developer>
+		<genre>Adventure, Atmospheric</genre>
+	</game>
+</gamelist>
