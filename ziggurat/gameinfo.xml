@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gamelist>
+	<game>
+		<path>./Ziggurat.sh</path>
+		<name>Ziggurat</name>
+		<desc>Dungeon-Crawling First Person Shooting at its finest! Fast-paced combat! Dozens of perks, spells and enemies! Level ups! Random Dungeons! Traps! Badass bosses! Carrots!</desc>
+		<releasedate>20131023</releasedate>
+		<developer>Milkstone Studios</developer>
+		<genre>Roguelite, FPS</genre>
+	</game>
+</gamelist>
