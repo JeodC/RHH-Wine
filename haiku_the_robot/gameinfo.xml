@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gamelist>
+	<game>
+		<path>./Haiku the Robot.sh</path>
+		<name>Haiku, the Robot</name>
+		<desc>Delve into the depths of a mechanical world in this cute, adventure-exploration game. Explore and fight in a land full of corrupt robots and machinery. All while seeking answers to the mysteries around you.</desc>
+		<image>./haiku_the_robot/cover.png</image>
+		<releasedate>20220428</releasedate>
+		<developer>Mister Morris Games</developer>
+		<genre>Metroidvania, Action, Adventure</genre>
+	</game>
+</gamelist>
