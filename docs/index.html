@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Jeod's Retro Handheld Wine Bottles</title>
+	<link
+		rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+	/>
+	<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+	<header class="site-header">
+		<h1>Jeod's Retro Handheld Wine Bottles</h1>
+
+		<div class="avatar">
+			<a href="https://github.com/JeodC" target="_blank" rel="noopener noreferrer">
+				<img src="jeod.png" alt="Jeod's GitHub profile" />
+			</a>
+		</div>
+
+		<nav class="social-links" aria-label="Social and Support Links">
+			<ul>
+				<li>
+					<a href="https://x.com/JeodPM" target="_blank" rel="noopener noreferrer">
+						<i class="fa-brands fa-x-twitter"></i> <span>@JeodPM</span>
+					</a>
+				</li>
+				<li>
+					<a href="https://bsky.app/profile/jeodpm.bsky.social" target="_blank" rel="noopener noreferrer">
+						<i class="fa-brands fa-bluesky"></i> <span>@JeodPM</span>
+					</a>
+				</li>
+				<li>
+					<a href="https://ko-fi.com/jeodc" target="_blank" rel="noopener noreferrer">
+						<i class="fa-solid fa-mug-hot"></i> <span>Donate on Ko-Fi!</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<!-- Bottle Counter -->
+		<section id="bottle-count" aria-live="polite"></section>
+
+        <!-- Search Bar -->
+        <section class="search-section">
+            <label for="search-bar" class="sr-only">Search bottles</label>
+            <input
+                type="text"
+                id="search-bar"
+                placeholder="Search bottles..."
+            />
+        </section>
+
+        <!-- Filters + Sort -->
+        <section class="filters-container">
+            <div class="filter-group">
+                <label for="genre-filter">Genre:</label>
+                <select id="genre-filter">
+                    <option value="all">All</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="availability-filter">Type:</label>
+                <select id="availability-filter">
+                    <option value="all">All</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="sort-select">Sort by:</label>
+                <select id="sort-select">
+                    <option value="alphabetical">Alphabetical</option>
+                    <option value="most_recent" selected>Recently updated</option>
+                </select>
+            </div>
+        </section>
+
+		<!-- Bottle Grid -->
+		<section id="bottle-container" aria-live="polite">Loading bottles...</section>
+	</main>
+
+	<script src="loadcask.js"></script>
+</body>
+</html>
