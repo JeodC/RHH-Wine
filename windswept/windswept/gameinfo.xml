@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gamelist>
+	<game>
+		<path>./Windswept.sh</path>
+		<name>Windswept</name>
+        <desc>Marbles and Checkers need your help finding their way home after being swept away in a storm. In this 90s buddy-platformer there's a ton of stuff to do and even more to collect!</desc>
+		<image>./windswept/cover.png</image>
+		<releasedate>20251111</releasedate>
+		<developer>WeatherFell</developer>
+		<genre>Action, Adventure, Indie</genre>
+	</game>
+</gamelist>
