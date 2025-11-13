@@ -18,7 +18,7 @@ jobs:
       - name: Collect screenshots
         run: |
           mkdir -p temp_screenshots
-          find ports/released -type f \( -iname 'screenshot.png' -o -iname 'screenshot.jpg' -o -iname 'screenshot.jpeg' \) | while read file; do
+          find bottles/released -type f \( -iname 'screenshot.png' -o -iname 'screenshot.jpg' -o -iname 'screenshot.jpeg' \) | while read file; do
             folder=$(basename $(dirname "$file"))
             cp "$file" "temp_screenshots/${folder}.${file##*/}"
           done
