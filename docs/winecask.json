@@ -27,8 +27,8 @@
       "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/cuphead.zip",
       "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/cuphead/cuphead/screenshot.png",
       "readme_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/cuphead/cuphead/README.md",
-      "size": 842765,
-      "md5": "9b238bec923d1b5a42be0e87f02b3127"
+      "size": 421946,
+      "md5": "dd43cd8f21ccf807eee0fefaecb5ff25"
     }
   },
   {
@@ -62,8 +62,8 @@
       "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/fieldsofmistria.zip",
       "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/fieldsofmistria/fieldsofmistria/screenshot.png",
       "readme_url": "",
-      "size": 1311197,
-      "md5": "c859218ffd4dfaabc885a0b862ca5305"
+      "size": 656410,
+      "md5": "3ba5bccc5d80899715bd47a240b576e1"
     }
   },
   {
@@ -96,8 +96,8 @@
       "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/tunic.zip",
       "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/tunic/tunic/screenshot.jpg",
       "readme_url": "",
-      "size": 1557607,
-      "md5": "d0cfca1ef3d2cb929e3ad1076b8932ba"
+      "size": 779325,
+      "md5": "963346cb17badc8da745a438318729cf"
     }
   },
   {
@@ -132,7 +132,7 @@
       "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/windswept/windswept/screenshot.png",
       "readme_url": "",
       "size": 694925,
-      "md5": "eea9d1fac5b5dc3d013fc25f49992e20"
+      "md5": "8a651ad3cce5fcb3d24da4b11d00e34e"
     }
   }
 ]
