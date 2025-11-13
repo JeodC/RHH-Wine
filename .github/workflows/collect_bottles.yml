@@ -129,7 +129,7 @@ jobs:
             # Hash / size
             MD5=$(md5sum "$ZIP_PATH" | awk '{print $1}')
             SIZE=$(stat -c %s "$ZIP_PATH")
-            DATE_UPDATED=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+            DATE_UPDATED=$(date -u +"%Y-%m-%dT%H:%M")
 
             # URLs
             SCREENSHOT_URL="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/${SCREENSHOT#"$GITHUB_WORKSPACE/"}"
