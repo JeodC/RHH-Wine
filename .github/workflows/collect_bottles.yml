@@ -1,4 +1,5 @@
 name: Generate Wine Bottles
+
 on:
   schedule:
     - cron: '0 */12 * * *'
@@ -25,6 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -64,25 +66,36 @@ jobs:
         run: |
           ZIP_DIR="$GITHUB_WORKSPACE/temp_bottles"
           CASK_JSON="$GITHUB_WORKSPACE/docs/winecask.json"
+
           for STAGING_DIR in ${{ steps.bottles.outputs.Bottles }}; do
             BOTTLENAME=$(basename "$STAGING_DIR")
             echo "Processing $BOTTLENAME"
+
             BOTTLE_JSON=$(find "$STAGING_DIR" -type f -name "bottle.json" | head -n1)
-            [ -f "$BOTTLE_JSON" ] || { echo "Skipping $BOTTLENAME: missing bottle.json"; continue; }
-            echo "Zipping → $ZIP_DIR/${BOTTLENAME}.zip"
+            [ -f "$BOTTLE_JSON" ] || { echo "  Skipping $BOTTLENAME: missing bottle.json"; continue; }
+            echo "Zipping bottle → $ZIP_DIR/${BOTTLENAME}.zip"
+
             (cd "$STAGING_DIR" && zip -r -q "$ZIP_DIR/${BOTTLENAME}.zip" .)
+
             BOTTLEDIR=$(dirname "$BOTTLE_JSON")
             SCREENSHOT=$(find "$BOTTLEDIR" -maxdepth 1 -type f \( -iname "screenshot*.png" -o -iname "screenshot*.jpg" -o -iname "screenshot*.jpeg" \) | head -n1)
-            [ -f "$SCREENSHOT" ] || { echo "Skipping $BOTTLENAME: no screenshot"; continue; }
+            [ -f "$SCREENSHOT" ] || { echo "Skipping $BOTTLENAME: no screenshot found"; continue; }
             README=$(find "$BOTTLEDIR" -maxdepth 1 -type f \( -iname "README.md" -o -iname "readme.md" \) | head -n1)
+
             ZIP_PATH="$ZIP_DIR/${BOTTLENAME}.zip"
             MD5=$(md5sum "$ZIP_PATH" | awk '{print $1}')
             SIZE=$(stat -c %s "$ZIP_PATH")
             DATE_UPDATED=$(date -u +"%Y-%m-%d")
             SCREENSHOT_URL="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/${SCREENSHOT#"$GITHUB_WORKSPACE/"}"
-            README_URL=""
-            [ -f "$README" ] && README_URL="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/${README#"$GITHUB_WORKSPACE/"}"
-            DOWNLOAD_URL="https://github.com/${GITHUB_REPOSITORY}/releases/download/bottles-latest/${BOTTLENAME}.zip"
+
+            if [ -f "$README" ]; then
+              README_URL="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/${README#"$GITHUB_WORKSPACE/"}"
+            else
+              README_URL=""
+            fi
+
+            DOWNLOAD_URL="https://github.com/${GITHUB_REPOSITORY}/releases/download/bottles-latest/${bottleNAME}.zip"
+
             ORIGINAL_JSON=$(cat "$BOTTLE_JSON")
             BOTTLE_JSON_MERGED=$(jq -n \
               --argjson original "$ORIGINAL_JSON" \
@@ -94,6 +107,7 @@ jobs:
               --arg md5 "$MD5" \
               '$original + {source: {date_updated: $date_updated, download_url: $download_url, screenshot_url: $screenshot_url, readme_url: $readme_url, size: ($size|tonumber), md5: $md5}}'
             )
+
             TMP=$(mktemp)
             jq --arg bottlename "$BOTTLENAME" --argjson bottlejson "$BOTTLE_JSON_MERGED" \
               'map(select((.name | split(".")[0]) != $bottlename)) + [$bottlejson]' \
@@ -106,46 +120,27 @@ jobs:
           TMP=$(mktemp)
           jq 'sort_by(.attr.title)' "$CASK_JSON" > "$TMP" && mv "$TMP" "$CASK_JSON"
 
-      - name: Ensure release and capture ID
-        id: release
-        if: ${{ steps.bottles.outputs.Bottles != '' }}
+      - name: Ensure release exists
+        if: ${{ steps.bottles.outputs.bottles != '' }}
         env:
           GH_TOKEN: ${{ secrets.TOKEN }}
         run: |
-          # Try to get existing release ID
-          RELEASE_ID=$(gh api "repos/${GITHUB_REPOSITORY}/releases/tags/bottles-latest" --jq '.id // empty' 2>/dev/null || echo "")
-          
-          if [ -z "$RELEASE_ID" ]; then
-            echo "Creating release: bottles-latest"
-            # Use --json to get structured output
-            RELEASE_ID=$(gh release create bottles-latest \
-              --title "Bottles Latest" \
-              --notes "Automated release of wine bottles" \
-              --json id -q '.id')
-            echo "Created release with ID: $RELEASE_ID"
-          else
-            echo "Using existing release ID: $RELEASE_ID"
-          fi
-          
-          echo "release_id=$RELEASE_ID" >> $GITHUB_OUTPUT
+          gh release view bottles-latest --json id &>/dev/null || \
+          gh release create bottles-latest --title "Bottles" --notes "Automated release"
 
       - name: Delete conflicting release assets
-        if: ${{ steps.bottles.outputs.Bottles != '' }}
         env:
-          GH_TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        if: ${{ steps.bottles.outputs.Bottles != '' }}
         run: |
-          RELEASE_ID="${{ steps.release.outputs.release_id }}"
-          echo "Deleting old assets from release ID: $RELEASE_ID"
-          
+          RELEASE_ID=$(gh api repos/${GITHUB_REPOSITORY}/releases/tags/bottles-latest --jq '.id')
           for FILE in temp_bottles/*.zip; do
-            [ -f "$FILE" ] || continue
             NAME=$(basename "$FILE")
-            ASSET_ID=$(gh api "repos/${GITHUB_REPOSITORY}/releases/$RELEASE_ID/assets" \
-              --jq ".[] | select(.name == \"$NAME\") | .id" 2>/dev/null || echo "")
+            ASSET_ID=$(gh api repos/${GITHUB_REPOSITORY}/releases/$RELEASE_ID/assets --jq ".[] | select(.name==\"$NAME\") | .id" 2>/dev/null || echo "")
             if [ -n "$ASSET_ID" ]; then
               echo "Deleting old asset: $NAME ($ASSET_ID)"
               gh api -X DELETE "repos/${GITHUB_REPOSITORY}/releases/assets/$ASSET_ID" || true
-              sleep 2
+              sleep 3
             fi
           done
 
@@ -156,24 +151,15 @@ jobs:
         run: |
           MAX_RETRIES=3
           for FILE in temp_bottles/*.zip; do
-            [ -f "$FILE" ] || continue
             NAME=$(basename "$FILE")
             ATTEMPT=1
-            while [ $ATTEMPT -le $MAX_RETRIES ]; do
-              echo "Uploading $NAME (attempt $ATTEMPT/$MAX_RETRIES)..."
-              if gh release upload bottles-latest "$FILE" --clobber; then
-                echo "Uploaded $NAME"
-                break
-              else
-                echo "Upload failed, retrying in 5s..."
-                sleep 5
-                ATTEMPT=$((ATTEMPT + 1))
-              fi
+            until [ $ATTEMPT -gt $MAX_RETRIES ]; do
+              echo "Uploading $NAME (attempt $ATTEMPT)..."
+              gh release upload bottles-latest "$FILE" --clobber && break
+              echo "Failed to upload $NAME, retrying in 5s..."
+              sleep 5
+              ATTEMPT=$((ATTEMPT+1))
             done
-            if [ $ATTEMPT -gt $MAX_RETRIES ]; then
-              echo "Failed to upload $NAME after $MAX_RETRIES attempts"
-              exit 1
-            fi
           done
 
       - name: Commit winecask.json
@@ -184,8 +170,6 @@ jobs:
           if ! git diff --cached --quiet; then
             git commit -m "Update winecask.json"
             git push
-          else
-            echo "No changes to winecask.json"
           fi
 
       - name: Cleanup
