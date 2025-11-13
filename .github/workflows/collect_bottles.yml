@@ -69,26 +69,25 @@ jobs:
 
           for STAGING_DIR in ${{ steps.bottles.outputs.Bottles }}; do
             BOTTLENAME=$(basename "$STAGING_DIR")
-            echo "Processing $BOTTLENAME"
+            echo "→ Processing $BOTTLENAME"
 
             BOTTLE_JSON=$(find "$STAGING_DIR" -type f -name "bottle.json" | head -n1)
             [ -f "$BOTTLE_JSON" ] || { echo "  Skipping $BOTTLENAME: missing bottle.json"; continue; }
 
-            echo "Zipping bottle → $ZIP_DIR/${BOTTLENAME}.zip"
+            echo "  📦 Zipping bottle → $ZIP_DIR/${BOTTLENAME}.zip"
             (cd "$STAGING_DIR" && zip -r -q "$ZIP_DIR/${BOTTLENAME}.zip" .)
 
-            # Search README and screenshots recursively within STAGING_DIR
-            SCREENSHOT=$(find "$STAGING_DIR" -type f \( -iname "screenshot*.png" -o -iname "screenshot*.jpg" -o -iname "screenshot*.jpeg" \) | head -n1)
-            README=$(find "$STAGING_DIR" -type f \( -iname "README.md" -o -iname "readme.md" \) | head -n1)
-
-            [ -f "$SCREENSHOT" ] || { echo "Skipping $BOTTLENAME: no screenshot found"; continue; }
+            BOTTLEDIR=$(dirname "$BOTTLE_JSON")
+            SCREENSHOT=$(find "$BOTTLEDIR" -maxdepth 1 -type f \( -iname "screenshot*.png" -o -iname "screenshot*.jpg" -o -iname "screenshot*.jpeg" \) | head -n1)
+            [ -f "$SCREENSHOT" ] || { echo "  Skipping $BOTTLENAME: no screenshot found"; continue; }
+            README=$(find "$BOTTLEDIR" -maxdepth 1 -type f \( -iname "README.md" -o -iname "readme.md" \) | head -n1)
 
             ZIP_PATH="$ZIP_DIR/${BOTTLENAME}.zip"
             MD5=$(md5sum "$ZIP_PATH" | awk '{print $1}')
             SIZE=$(stat -c %s "$ZIP_PATH")
             DATE_UPDATED=$(date -u +"%Y-%m-%d")
-
             SCREENSHOT_URL="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/${SCREENSHOT#"$GITHUB_WORKSPACE/"}"
+
             if [ -f "$README" ]; then
               README_URL="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/${README#"$GITHUB_WORKSPACE/"}"
             else
@@ -97,20 +96,22 @@ jobs:
 
             DOWNLOAD_URL="https://github.com/${GITHUB_REPOSITORY}/releases/download/bottles-latest/${BOTTLENAME}.zip"
 
-            # Merge source into original bottle.json
-            BOTTLE_JSON_MERGED=$(jq --arg date_updated "$DATE_UPDATED" \
-                                    --arg download_url "$DOWNLOAD_URL" \
-                                    --arg readme_url "$README_URL" \
-                                    --arg screenshot_url "$SCREENSHOT_URL" \
-                                    --arg size "$SIZE" \
-                                    --arg md5 "$MD5" \
-                                    '. + {source: {date_updated: $date_updated, download_url: $download_url, screenshot_url: $screenshot_url, readme_url: $readme_url, size: ($size|tonumber), md5: $md5}}' \
-                                    "$BOTTLE_JSON")
+            ORIGINAL_JSON=$(cat "$BOTTLE_JSON")
+            BOTTLE_JSON_MERGED=$(jq -n \
+              --argjson original "$ORIGINAL_JSON" \
+              --arg date_updated "$DATE_UPDATED" \
+              --arg download_url "$DOWNLOAD_URL" \
+              --arg readme_url "$README_URL" \
+              --arg screenshot_url "$SCREENSHOT_URL" \
+              --arg size "$SIZE" \
+              --arg md5 "$MD5" \
+              '$original + {source: {date_updated: $date_updated, download_url: $download_url, screenshot_url: $screenshot_url, readme_url: $readme_url, size: ($size|tonumber), md5: $md5}}'
+            )
 
             TMP=$(mktemp)
             jq --arg bottlename "$BOTTLENAME" --argjson bottlejson "$BOTTLE_JSON_MERGED" \
-               'map(select(.name != $bottlename)) + [$bottlejson]' \
-               "$CASK_JSON" > "$TMP" && mv "$TMP" "$CASK_JSON"
+              'map(select((.name | split(".")[0]) != $bottlename)) + [$bottlejson]' \
+              "$CASK_JSON" > "$TMP" && mv "$TMP" "$CASK_JSON"
           done
 
       - name: Sort bottles by title (prettified)
