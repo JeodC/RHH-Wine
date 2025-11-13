@@ -14,17 +14,16 @@ This repository hosts all of the DRM-free games that are proven to work with Pro
  └───winesetup
 ```
 
-The `winesetup` file is sourced in every launch script and sets up the wineprefix and other common environment variables. After it's set up properly, you can copy whatever wine game wrapper you wish to `roms/windows` and then copy the respective game data into `folder/data`. If a wine game wrapper has any additional setup required, there will be a `README.md` file inside the wrapper folder.
+The `winesetup` file is sourced in every launch script and sets up the wineprefix and other common environment variables. After it's set up properly, you can copy whatever bottle you wish to `roms/windows` (or use [Pharos](https://github.com/JeodC/Pharos) to install them) and then copy the respective game data into `folder/data`. If a wine bottle has any additional setup required, there will be a `README.md` file inside the wrapper folder.
 
-Most wine games here make use of PortMaster's environment variables and GPTOKEYB.
+Most wine bottles here make use of PortMaster's environment variables and GPTOKEYB.
 
 ## Customization
 
 The `.proton` folder is only named because Proton is recommended. You can of course use a normal wine build inside, since the folder structure will be the same. You can also modify `winesetup` to use a specific box64 version or modify the launch scripts for a per-game override. Rocknix tends to build the latest box and wine binaries into their firmware.
 
-## Cherry picking
-You can use [Downgit](https://downgit.github.io/#/home) to download specific folders from this repository and avoid having to get the entire thing. Just navigate to the directory you want and copy & paste to downgit.
-
 ## Missing X
 
-This repository does not host wine game wrappers for any games requiring DRM bypass such as select Steam titles. Pull requests to add such games will be denied. Pull requests adding DRM-free wine game wrappers are welcome.
+This repository does not host wine bottles for any games requiring DRM bypass such as select Steam titles. If any bottles have multiple platform releases and one or more have DRM, a README will instruct which is preferred to use.
+
+Pull requests to add DRM-bypassed bottles will be denied. Pull requests adding DRM-free wine bottles are welcome.
