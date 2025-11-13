@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "name": "ori.zip",
+  "items": [
+    "Ori and the Blind Forest.sh",
+    "ori"
+  ],
+  "runner": "default",
+  "deps": [
+  ],
+  "env": {
+    "WINEDEBUG": "-all",
+    "WINEARCH": "win64"
+  },
+  "configdir": [
+    "drive_c/users/root/AppData/Local/Ori and the Blind Forest",
+    "drive_c/users/root/AppData/Local/Ori and the Blind Forest DE"
+  ],
+  "attr": {
+    "title": "Ori and the Blind Forest",
+    "desc": "Ori and the Blind Forest tells the tale of a young orphan destined for heroics, through a visually stunning action-platformer crafted by Moon Studios for PC.",
+    "inst": "Add your game files to the data folder",
+    "genres": [
+	  "action",
+      "adventure"
+    ],
+    "availability": "paid"
+  }
+}

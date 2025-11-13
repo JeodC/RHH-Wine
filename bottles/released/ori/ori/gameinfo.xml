@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gamelist>
+	<game>
+		<path>./Ori and the Blind Forest.sh</path>
+		<name>Ori and the Blind Forest</name>
+		<desc>Ori and the Blind Forest tells the tale of a young orphan destined for heroics, through a visually stunning action-platformer crafted by Moon Studios for PC.</desc>
+		<image>./ori/cover.png</image>
+		<releasedate>20150311</releasedate>
+		<developer>Moon Studios GmbH</developer>
+		<genre>Action, Adventure</genre>
+	</game>
+</gamelist>
