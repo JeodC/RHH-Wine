@@ -1,37 +1,37 @@
 [
   {
-    "version": 1,
-    "name": "windswept.zip",
-    "items": [
-      "Windswept.sh",
-      "windswept"
-    ],
-    "runner": "default",
-    "deps": [
-      "vcrun2022"
-    ],
-    "env": {
-      "WINEDEBUG": "-all",
-      "WINEARCH": "win64"
-    },
-    "configdir": "drive_c/users/root/AppData/Local/Windswept",
     "attr": {
-      "title": "Windswept",
+      "availability": "paid",
       "desc": "Marbles and Checkers need your help finding their way home after being swept away in a storm. In this 90s buddy-platformer there's a ton of stuff to do and even more to collect!",
-      "inst": "Add your game files to the data folder",
       "genres": [
         "action",
         "adventure"
       ],
-      "availability": "paid"
+      "inst": "Add your game files to the data folder",
+      "title": "Windswept"
     },
+    "configdir": "drive_c/users/root/AppData/Local/Windswept",
+    "deps": [
+      "vcrun2022"
+    ],
+    "env": {
+      "WINEARCH": "win64",
+      "WINEDEBUG": "-all"
+    },
+    "items": [
+      "Windswept.sh",
+      "windswept"
+    ],
+    "name": "windswept.zip",
+    "runner": "default",
     "source": {
       "date_updated": "2025-11-13",
-      "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/.zip",
-      "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/windswept/windswept/screenshot.png",
+      "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/windswept.zip",
+      "md5": "a5d85d33a53db436d38a49fb74caf9bc",
       "readme_url": "",
-      "size": 694925,
-      "md5": "2a8d579829bdc84e8a79f4df7ca5c872"
-    }
+      "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/windswept/windswept/screenshot.png",
+      "size": 694925
+    },
+    "version": 1
   }
 ]
