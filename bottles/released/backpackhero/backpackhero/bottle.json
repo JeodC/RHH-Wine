@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "name": "backpackhero.zip",
+  "items": [
+    "Backpack Hero.sh",
+    "backpackhero"
+  ],
+  "runner": "default",
+  "deps": [
+  ],
+  "env": {
+    "WINEDEBUG": "-all",
+    "WINEARCH": "win64"
+  },
+  "configdir": "drive_c/users/root/AppData/LocalLow/TheJaspel/Backpack Hero",
+  "attr": {
+    "title": "Backpack Hero",
+    "desc": "The inventory management roguelike! Collect rare items, organize your backpack, and vanquish your foes!",
+    "inst": "Add your game files to the data folder",
+    "genres": [
+      "adventure"
+    ],
+    "availability": "paid"
+  }
+}

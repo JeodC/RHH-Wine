@@ -38,7 +38,7 @@ export SDL_GAMECONTROLLERCONFIG="$sdl_controllerconfig"
 
 # Config Setup
 mkdir -p $GAMEDIR/config
-bind_directories "$WINEPREFIX/drive_c/users/steamuser/AppData/LocalLow/TheJaspel/Backpack Hero" "$GAMEDIR/config"
+bind_directories "$WINEPREFIX/drive_c/users/root/AppData/LocalLow/TheJaspel/Backpack Hero" "$GAMEDIR/config"
 
 # Run the game
 $GPTOKEYB "$BASE" -c "$GAMEDIR/bphero.gptk" &
