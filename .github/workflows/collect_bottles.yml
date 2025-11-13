@@ -114,7 +114,7 @@ jobs:
               "$CASK_JSON" > "$TMP" && mv "$TMP" "$CASK_JSON"
           done
 
-      - name: Sort bottles by title (prettified)
+      - name: Sort bottles by title
         run: |
           CASK_JSON="$GITHUB_WORKSPACE/docs/winecask.json"
           TMP=$(mktemp)
