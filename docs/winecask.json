@@ -1,6 +1,41 @@
 [
   {
     "version": 1,
+    "name": "fieldsofmistria.zip",
+    "items": [
+      "Fields of Mistria.sh",
+      "fieldsofmistria"
+    ],
+    "runner": "default",
+    "deps": [
+      "vcrun2022"
+    ],
+    "env": {
+      "WINEDEBUG": "-all",
+      "WINEARCH": "win64"
+    },
+    "configdir": "drive_c/users/steamuser/AppData/Local/FieldsOfMistria",
+    "attr": {
+      "title": "Fields of Mistria",
+      "desc": "Start your new life! Build the farm of your dreams as you discover a world brimming with possibilities. Magic, romance, and adventure all await you in this nostalgic farming / life sim RPG!",
+      "inst": "Add your game files to the data folder",
+      "genres": [
+        "adventure",
+        "rpg"
+      ],
+      "availability": "paid"
+    },
+    "source": {
+      "date_updated": "2025-11-13",
+      "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/fieldsofmistria.zip",
+      "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/fieldsofmistria/fieldsofmistria/screenshot.png",
+      "readme_url": "",
+      "size": 1311197,
+      "md5": "c859218ffd4dfaabc885a0b862ca5305"
+    }
+  },
+  {
+    "version": 1,
     "name": "windswept.zip",
     "items": [
       "Windswept.sh",
