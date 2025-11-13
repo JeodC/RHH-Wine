@@ -17,13 +17,13 @@ source $controlfolder/control.txt
 get_controls
 
 # Variables
-GAMEDIR="/$directory/windows/girlfromarkanya"
+GAMEDIR="/$directory/windows/cuphead"
 SPLASH="/$directory/windows/.proton/tools/splash"
-EXEC="$GAMEDIR/data/The Girl from Arkanya.exe"
+EXEC="$GAMEDIR/data/Cuphead.exe"
 BASE=$(basename "$EXEC")
 
 # CD and set log
-cd $GAMEDIR/data
+cd $GAMEDIR
 > "$GAMEDIR/log.txt" && exec > >(tee "$GAMEDIR/log.txt") 2>&1
 
 # Display loading splash
@@ -38,10 +38,11 @@ export SDL_GAMECONTROLLERCONFIG="$sdl_controllerconfig"
 
 # Config Setup
 mkdir -p $GAMEDIR/config
-bind_directories "$WINEPREFIX/drive_c/users/root/AppData/LocalLow/Arkanya Games/The Girl from Arkanya" "$GAMEDIR/config"
+bind_directories "$WINEPREFIX/drive_c/users/root/AppData/LocalLow/Studio MDHR/Cuphead" "$GAMEDIR/config"
+bind_directories "$WINEPREFIX/drive_c/users/root/AppData/Roaming/Cuphead" "$GAMEDIR/config"
 
 # Run the game
-$GPTOKEYB "$BASE" -c "$GAMEDIR/arkanya.gptk" &
+$GPTOKEYB "$BASE" -c "$GAMEDIR/cuphead.gptk" &
 $BOX $PROTON/$WINE "$EXEC"
 
 # Kill processes

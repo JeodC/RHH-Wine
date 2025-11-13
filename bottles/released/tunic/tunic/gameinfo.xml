@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gamelist>
+	<game>
+		<path>./Tunic.sh</path>
+		<name>Tunic</name>
+		<desc>Explore a land filled with lost legends, ancient powers, and ferocious monsters in TUNIC, an isometric action game about a small fox on a big adventure.</desc>
+		<image>./tunic/cover.png</image>
+		<releasedate>20220316</releasedate>
+		<developer>TUNIC Team</developer>
+		<genre>Action, Adventure, RPG</genre>
+	</game>
+</gamelist>

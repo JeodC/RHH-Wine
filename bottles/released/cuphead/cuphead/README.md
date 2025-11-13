@@ -1,0 +1,2 @@
+# Installation
+Cuphead is drm-free on GOG and Steam, but the DLC is only drm-free on GOG. If using Steam, you must run a steam emu to enable DLC. Do not expect support for this. Using GOG is recommended.
