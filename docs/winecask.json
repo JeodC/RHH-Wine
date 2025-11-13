@@ -55,12 +55,12 @@
       "availability": "paid"
     },
     "source": {
-      "date_updated": "2025-11-13T21:45",
+      "date_updated": "2025-11-13T21:54",
       "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/backpackhero.zip",
       "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/backpackhero/backpackhero/screenshot.png",
       "readme_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/backpackhero/backpackhero/README.md",
       "size": 362631,
-      "md5": "b018cc5253bc8c2941ded2e4ec586d48"
+      "md5": "6a342e6061c09243790682fa5eec3144"
     }
   },
   {
@@ -119,12 +119,12 @@
       "availability": "paid"
     },
     "source": {
-      "date_updated": "2025-11-13T21:45",
+      "date_updated": "2025-11-13T21:54",
       "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/cuphead.zip",
       "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/cuphead/cuphead/screenshot.png",
       "readme_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/cuphead/cuphead/README.md",
       "size": 421946,
-      "md5": "2b5ebaf6930517f164850afbbb732956"
+      "md5": "ef30a705dbc42b85e0e4e41405bb6ef3"
     }
   },
   {
@@ -189,12 +189,12 @@
       "availability": "paid"
     },
     "source": {
-      "date_updated": "2025-11-13T21:45",
+      "date_updated": "2025-11-13T21:54",
       "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/fieldsofmistria.zip",
       "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/fieldsofmistria/fieldsofmistria/screenshot.png",
       "readme_url": "",
       "size": 656410,
-      "md5": "bbbd8589cd9804fd9d02e6b9113baba2"
+      "md5": "d81229aeb3144d3ce64b318bb98ef8d3"
     }
   },
   {
@@ -261,12 +261,12 @@
       "availability": "paid"
     },
     "source": {
-      "date_updated": "2025-11-13T21:45",
+      "date_updated": "2025-11-13T21:54",
       "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/ori.zip",
       "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/ori/ori/screenshot.png",
       "readme_url": "",
       "size": 497944,
-      "md5": "fbd17fdd48acc86c77ebbb0d818c9a90"
+      "md5": "0cf73b9d2d13eab14c6ea7cb8819f435"
     }
   },
   {
@@ -329,12 +329,12 @@
       "availability": "paid"
     },
     "source": {
-      "date_updated": "2025-11-13T21:45",
+      "date_updated": "2025-11-13T21:54",
       "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/tunic.zip",
       "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/tunic/tunic/screenshot.jpg",
       "readme_url": "",
       "size": 779325,
-      "md5": "6d08529e3a51bd1a47b613207a240eb9"
+      "md5": "6fd57bb1d1eef1324587d326979c5c2c"
     }
   },
   {
@@ -399,12 +399,12 @@
       "availability": "paid"
     },
     "source": {
-      "date_updated": "2025-11-13T21:45",
+      "date_updated": "2025-11-13T21:54",
       "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/windswept.zip",
       "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/windswept/windswept/screenshot.png",
       "readme_url": "",
       "size": 694925,
-      "md5": "ed1cb7f099e795d5753402d22ebf8843"
+      "md5": "a04c111c25ee9709453beb67d17c6e69"
     }
   }
 ]
