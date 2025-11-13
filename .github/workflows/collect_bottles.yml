@@ -69,17 +69,17 @@ jobs:
 
           for STAGING_DIR in ${{ steps.bottles.outputs.Bottles }}; do
             BOTTLENAME=$(basename "$STAGING_DIR")
-            echo "→ Processing $BOTTLENAME"
+            echo "Processing $BOTTLENAME"
 
             BOTTLE_JSON=$(find "$STAGING_DIR" -type f -name "bottle.json" | head -n1)
             [ -f "$BOTTLE_JSON" ] || { echo "  Skipping $BOTTLENAME: missing bottle.json"; continue; }
+            echo "Zipping bottle → $ZIP_DIR/${BOTTLENAME}.zip"
 
-            echo "  📦 Zipping bottle → $ZIP_DIR/${BOTTLENAME}.zip"
             (cd "$STAGING_DIR" && zip -r -q "$ZIP_DIR/${BOTTLENAME}.zip" .)
 
             BOTTLEDIR=$(dirname "$BOTTLE_JSON")
             SCREENSHOT=$(find "$BOTTLEDIR" -maxdepth 1 -type f \( -iname "screenshot*.png" -o -iname "screenshot*.jpg" -o -iname "screenshot*.jpeg" \) | head -n1)
-            [ -f "$SCREENSHOT" ] || { echo "  Skipping $BOTTLENAME: no screenshot found"; continue; }
+            [ -f "$SCREENSHOT" ] || { echo "Skipping $BOTTLENAME: no screenshot found"; continue; }
             README=$(find "$BOTTLEDIR" -maxdepth 1 -type f \( -iname "README.md" -o -iname "readme.md" \) | head -n1)
 
             ZIP_PATH="$ZIP_DIR/${BOTTLENAME}.zip"
@@ -94,7 +94,7 @@ jobs:
               README_URL=""
             fi
 
-            DOWNLOAD_URL="https://github.com/${GITHUB_REPOSITORY}/releases/download/bottles-latest/${BOTTLENAME}.zip"
+            DOWNLOAD_URL="https://github.com/${GITHUB_REPOSITORY}/releases/download/bottles-latest/${bottleNAME}.zip"
 
             ORIGINAL_JSON=$(cat "$BOTTLE_JSON")
             BOTTLE_JSON_MERGED=$(jq -n \
@@ -121,28 +121,26 @@ jobs:
           jq 'sort_by(.attr.title)' "$CASK_JSON" > "$TMP" && mv "$TMP" "$CASK_JSON"
 
       - name: Ensure release exists
+        if: ${{ steps.bottles.outputs.bottles != '' }}
         env:
           GH_TOKEN: ${{ secrets.TOKEN }}
         run: |
-          RELEASE_ID=$(gh api repos/${GITHUB_REPOSITORY}/releases/tags/bottles-latest --jq '.id' 2>/dev/null || echo "")
-          if [ -z "$RELEASE_ID" ]; then
-            echo "No release found → creating bottles-latest release"
-            gh release create bottles-latest --title "Bottles Latest" --notes "Automated release of wine bottles"
-          fi
+          gh release view bottles-latest --json id &>/dev/null || \
+          gh release create bottles-latest --title "Bottles" --notes "Automated release"
 
       - name: Delete conflicting release assets
         env:
-          GH_TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
         if: ${{ steps.bottles.outputs.Bottles != '' }}
         run: |
           RELEASE_ID=$(gh api repos/${GITHUB_REPOSITORY}/releases/tags/bottles-latest --jq '.id')
           for FILE in temp_bottles/*.zip; do
             NAME=$(basename "$FILE")
-            ASSET_ID=$(gh api repos/${GITHUB_REPOSITORY}/releases/$RELEASE_ID/assets --jq ".[] | select(.name==\"$NAME\") | .id")
+            ASSET_ID=$(gh api repos/${GITHUB_REPOSITORY}/releases/$RELEASE_ID/assets --jq ".[] | select(.name==\"$NAME\") | .id" 2>/dev/null || echo "")
             if [ -n "$ASSET_ID" ]; then
-              echo "Deleting previously uploaded asset $NAME ($ASSET_ID)"
-              gh api -X DELETE repos/${GITHUB_REPOSITORY}/releases/assets/$ASSET_ID
-              sleep 5
+              echo "Deleting old asset: $NAME ($ASSET_ID)"
+              gh api -X DELETE "repos/${GITHUB_REPOSITORY}/releases/assets/$ASSET_ID" || true
+              sleep 3
             fi
           done
 
