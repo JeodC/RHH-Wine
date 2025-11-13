@@ -100,6 +100,42 @@
   },
   {
     "version": 1,
+    "name": "ori.zip",
+    "items": [
+      "Ori and the Blind Forest.sh",
+      "ori"
+    ],
+    "runner": "default",
+    "deps": [],
+    "env": {
+      "WINEDEBUG": "-all",
+      "WINEARCH": "win64"
+    },
+    "configdir": [
+      "drive_c/users/root/AppData/Local/Ori and the Blind Forest",
+      "drive_c/users/root/AppData/Local/Ori and the Blind Forest DE"
+    ],
+    "attr": {
+      "title": "Ori and the Blind Forest",
+      "desc": "Ori and the Blind Forest tells the tale of a young orphan destined for heroics, through a visually stunning action-platformer crafted by Moon Studios for PC.",
+      "inst": "Add your game files to the data folder",
+      "genres": [
+        "action",
+        "adventure"
+      ],
+      "availability": "paid"
+    },
+    "source": {
+      "date_updated": "2025-11-13",
+      "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/ori.zip",
+      "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/ori/ori/screenshot.png",
+      "readme_url": "",
+      "size": 497944,
+      "md5": "26160f2377c32bfa97d2b0bbe9da9879"
+    }
+  },
+  {
+    "version": 1,
     "name": "tunic.zip",
     "items": [
       "Tunic.sh",
