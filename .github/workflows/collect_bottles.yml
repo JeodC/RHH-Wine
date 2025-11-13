@@ -67,7 +67,7 @@ jobs:
                 dir="$(dirname "$dir")"
               done
 
-              # .sh next to port dir
+              # .sh next to bottle dir
               if [[ -z "$candidate" ]]; then
                 parent="$(dirname "$file")"
                 if [[ -f "$parent/bottle.json" ]] && [[ "$file" == *.sh ]]; then
@@ -75,7 +75,7 @@ jobs:
                 fi
               fi
 
-              # .sh inside port dir
+              # .sh inside bottle dir
               if [[ -z "$candidate" ]] && [[ -f "$dir/bottle.json" ]] && [[ "$file" == *.sh ]]; then
                 candidate="$dir"
               fi
@@ -103,7 +103,7 @@ jobs:
           CASK_JSON="$GITHUB_WORKSPACE/docs/winecask.json"
 
           for BOTTLE_DIR in "${BOTTLE_DIRS[@]}"; do
-            BOTTLE_JSON="$PORT_DIR/bottle.json"
+            BOTTLE_JSON="$BOTTLE_DIR/bottle.json"
             BOTTLENAME="$(basename "$BOTTLE_DIR")"
 
             # ── Staging directory = parent of port dir ──
@@ -175,7 +175,7 @@ jobs:
           done
 
       # ────────────────────── SORT ──────────────────────
-      - name: Sort ports by title
+      - name: Sort bottles by title
         run: |
           jq 'sort_by(.attr.title // "Untitled")' "$GITHUB_WORKSPACE/docs/winecask.json" \
             > "$GITHUB_WORKSPACE/docs/winecask.tmp" && \
