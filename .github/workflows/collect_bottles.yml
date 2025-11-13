@@ -47,18 +47,24 @@ jobs:
         id: bottles
         run: |
           if [ "${{ github.event.inputs.force }}" = "true" ]; then
-            mapfile -t BOTTLES < <(find bottles/released -type f -name "*.sh" -exec dirname {} \;)
+            # Only process top-level bottle directories
+            mapfile -t BOTTLES < <(find bottles/released -mindepth 1 -maxdepth 1 -type d)
           else
             mapfile -t CHANGED < <(git diff --name-only HEAD^ HEAD)
             BOTTLES=()
             for f in "${CHANGED[@]}"; do
               if [[ "$f" == bottles/released/* ]]; then
-                BOTTLES+=("$(dirname "$f")")
+                ROOT_DIR="bottles/released/$(echo "$f" | cut -d'/' -f3)"
+                [ -d "$ROOT_DIR" ] && BOTTLES+=("$ROOT_DIR")
               fi
             done
           fi
+
+          # Remove duplicates and sort
           mapfile -t BOTTLES < <(printf "%s\n" "${BOTTLES[@]}" | sort -u)
-          echo "Found ${#BOTTLES[@]} bottles to process."
+
+          echo "Found ${#BOTTLES[@]} bottles to process:"
+          printf '  - %s\n' "${BOTTLES[@]}"
           echo "Bottles=${BOTTLES[*]}" >> $GITHUB_OUTPUT
 
       - name: Process bottles
@@ -71,21 +77,29 @@ jobs:
             BOTTLENAME=$(basename "$STAGING_DIR")
             echo "→ Processing $BOTTLENAME"
 
-            BOTTLE_JSON=$(find "$STAGING_DIR" -type f -name "bottle.json" | head -n1)
-            [ -f "$BOTTLE_JSON" ] || { echo "  Skipping $BOTTLENAME: missing bottle.json"; continue; }
+            # Metadata expected inside nested subfolder with same name
+            META_DIR="$STAGING_DIR/$BOTTLENAME"
+            BOTTLE_JSON="$META_DIR/bottle.json"
+
+            if [ ! -f "$BOTTLE_JSON" ]; then
+              echo "  Skipping $BOTTLENAME: missing $BOTTLE_JSON"
+              continue
+            fi
+
+            SCREENSHOT=$(find "$META_DIR" -maxdepth 1 -type f \( -iname "screenshot*.png" -o -iname "screenshot*.jpg" -o -iname "screenshot*.jpeg" \) | head -n1)
+            if [ ! -f "$SCREENSHOT" ]; then
+              echo "  Skipping $BOTTLENAME: no screenshot found"
+              continue
+            fi
+
+            README=$(find "$META_DIR" -maxdepth 1 -type f \( -iname "README.md" -o -iname "readme.md" \) | head -n1)
 
             echo "  📦 Zipping bottle → $ZIP_DIR/${BOTTLENAME}.zip"
             (cd "$STAGING_DIR" && zip -r -q "$ZIP_DIR/${BOTTLENAME}.zip" .)
 
-            BOTTLEDIR=$(dirname "$BOTTLE_JSON")
-            SCREENSHOT=$(find "$BOTTLEDIR" -maxdepth 1 -type f \( -iname "screenshot*.png" -o -iname "screenshot*.jpg" -o -iname "screenshot*.jpeg" \) | head -n1)
-            [ -f "$SCREENSHOT" ] || { echo "  Skipping $BOTTLENAME: no screenshot found"; continue; }
-            README=$(find "$BOTTLEDIR" -maxdepth 1 -type f \( -iname "README.md" -o -iname "readme.md" \) | head -n1)
-
             ZIP_PATH="$ZIP_DIR/${BOTTLENAME}.zip"
             MD5=$(md5sum "$ZIP_PATH" | awk '{print $1}')
             SIZE=$(stat -c %s "$ZIP_PATH")
-            DATE_UPDATED=$(date -u +"%Y-%m-%d")
             SCREENSHOT_URL="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/${SCREENSHOT#"$GITHUB_WORKSPACE/"}"
 
             if [ -f "$README" ]; then
@@ -97,6 +111,25 @@ jobs:
             DOWNLOAD_URL="https://github.com/${GITHUB_REPOSITORY}/releases/download/bottles-latest/${BOTTLENAME}.zip"
 
             ORIGINAL_JSON=$(cat "$BOTTLE_JSON")
+
+            # Load existing bottle entry if it exists
+            EXISTING_ENTRY=$(jq -c --arg name "$BOTTLENAME" '.[] | select((.name | split(".")[0]) == $name)' "$CASK_JSON" || echo "")
+            if [ -n "$EXISTING_ENTRY" ]; then
+              OLD_MD5=$(echo "$EXISTING_ENTRY" | jq -r '.source.md5 // empty')
+              OLD_SIZE=$(echo "$EXISTING_ENTRY" | jq -r '.source.size // empty')
+            else
+              OLD_MD5=""
+              OLD_SIZE=""
+            fi
+
+            # Decide whether to bump date_updated
+            if [ "$MD5" != "$OLD_MD5" ] || [ "$SIZE" != "$OLD_SIZE" ]; then
+              DATE_UPDATED=$(date -u +"%Y-%m-%d")
+            else
+              DATE_UPDATED=$(echo "$EXISTING_ENTRY" | jq -r '.source.date_updated // empty')
+              [ -z "$DATE_UPDATED" ] && DATE_UPDATED=$(date -u +"%Y-%m-%d")
+            fi
+
             BOTTLE_JSON_MERGED=$(jq -n \
               --argjson original "$ORIGINAL_JSON" \
               --arg date_updated "$DATE_UPDATED" \
