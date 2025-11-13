@@ -26,12 +26,12 @@
       "availability": "paid"
     },
     "source": {
-      "date_updated": "2025-11-12",
-      "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/windswept.zip",
+      "date_updated": "2025-11-13",
+      "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/.zip",
       "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/windswept/windswept/screenshot.png",
       "readme_url": "",
-      "size": 1388429,
-      "md5": "9b73466993fb5a1e157325ae3c2f7a2d"
+      "size": 694925,
+      "md5": "2a8d579829bdc84e8a79f4df7ca5c872"
     }
   }
 ]
