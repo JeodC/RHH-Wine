@@ -188,30 +188,27 @@ jobs:
           gh release view bottles-latest --json id &>/dev/null || \
             gh release create bottles-latest --title "Bottles" --notes "Automated release" --target ${{ github.sha }}
 
-      - name: Delete conflicting assets
+      - name: Delete conflicting release assets
         if: ${{ steps.bottles.outputs.bottles != '' }}
         env:
-          GH_TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
         run: |
-          RELEASE_ID=$(gh api "repos/${GITHUB_REPOSITORY}/releases/tags/bottles-latest" --jq '.id')
-          [ -z "$RELEASE_ID" ] && exit 0
+          RELEASE_ID=$(gh api repos/${GITHUB_REPOSITORY}/releases/tags/bottles-latest --jq '.id' || echo "")
+          [ -z "$RELEASE_ID" ] && { echo "No release found, skipping asset deletion"; exit 0; }
           for FILE in temp_bottles/*.zip; do
             NAME=$(basename "$FILE")
-            ASSET_ID=$(gh api "repos/${GITHUB_REPOSITORY}/releases/$RELEASE_ID/assets" \
-                         --jq ".[] | select(.name==\"$NAME\") | .id" 2>/dev/null || echo "")
+            ASSET_ID=$(gh api repos/${GITHUB_REPOSITORY}/releases/$RELEASE_ID/assets --jq ".[] | select(.name==\"$NAME\") | .id" 2>/dev/null || echo "")
             if [ -n "$ASSET_ID" ]; then
-              echo "Deleting old $NAME"
-              for i in {1..3}; do
-                gh api -X DELETE "repos/${GITHUB_REPOSITORY}/releases/assets/$ASSET_ID" && break
-                sleep $((i*2))
-              done
+              echo "Deleting old asset: $NAME ($ASSET_ID)"
+              gh api -X DELETE "repos/${GITHUB_REPOSITORY}/releases/assets/$ASSET_ID" || true
+              sleep 3
             fi
           done
 
       - name: Upload zips with retries
-        if: ${{ steps.ports.outputs.ports != '' }}
+        if: ${{ steps.bottles.outputs.bottles != '' }}
         env:
-          GH_TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
         run: |
           MAX_RETRIES=3
           for FILE in temp_bottles/*.zip; do
@@ -219,9 +216,10 @@ jobs:
             ATTEMPT=1
             until [ $ATTEMPT -gt $MAX_RETRIES ]; do
               echo "Uploading $NAME (attempt $ATTEMPT)..."
-              if gh release upload bottles-latest "$FILE" --clobber; then break; fi
+              gh release upload bottles-latest "$FILE" --clobber && break
+              echo "Failed to upload $NAME, retrying in 5s..."
               sleep 5
-              ATTEMPT=$((ATTEMPT + 1))
+              ATTEMPT=$((ATTEMPT+1))
             done
           done
 
