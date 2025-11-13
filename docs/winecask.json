@@ -33,5 +33,40 @@
       "size": 694925
     },
     "version": 1
+  },
+  {
+    "attr": {
+      "availability": "paid",
+      "desc": "Marbles and Checkers need your help finding their way home after being swept away in a storm. In this 90s buddy-platformer there's a ton of stuff to do and even more to collect!",
+      "genres": [
+        "action",
+        "adventure"
+      ],
+      "inst": "Add your game files to the data folder",
+      "title": "Windswept"
+    },
+    "configdir": "drive_c/users/root/AppData/Local/Windswept",
+    "deps": [
+      "vcrun2022"
+    ],
+    "env": {
+      "WINEARCH": "win64",
+      "WINEDEBUG": "-all"
+    },
+    "items": [
+      "Windswept.sh",
+      "windswept"
+    ],
+    "name": "windswept.zip",
+    "runner": "default",
+    "source": {
+      "date_updated": "2025-11-13",
+      "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/windswept.zip",
+      "md5": "bb9aeee46300d48909c572e523de0f52",
+      "readme_url": "",
+      "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/windswept/windswept/screenshot.png",
+      "size": 694925
+    },
+    "version": 1
   }
 ]
