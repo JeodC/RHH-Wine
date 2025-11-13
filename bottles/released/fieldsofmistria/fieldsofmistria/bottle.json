@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "name": "fieldsofmistria.zip",
+  "items": [
+    "Fields of Mistria.sh",
+    "fieldsofmistria"
+  ],
+  "runner": "default",
+  "deps": [
+    "vcrun2022"
+  ],
+  "env": {
+    "WINEDEBUG": "-all",
+    "WINEARCH": "win64"
+  },
+  "configdir": "drive_c/users/steamuser/AppData/Local/FieldsOfMistria",
+  "attr": {
+    "title": "Fields of Mistria",
+    "desc": "Start your new life! Build the farm of your dreams as you discover a world brimming with possibilities. Magic, romance, and adventure all await you in this nostalgic farming / life sim RPG!",
+    "inst": "Add your game files to the data folder",
+    "genres": [
+      "adventure",
+	  "rpg"
+    ],
+    "availability": "paid"
+  }
+}
