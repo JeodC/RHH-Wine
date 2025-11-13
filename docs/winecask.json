@@ -1,0 +1,206 @@
+[
+  {
+    "version": 1,
+    "name": "backpackhero.zip",
+    "items": [
+      "Backpack Hero.sh",
+      "backpackhero"
+    ],
+    "runner": "default",
+    "deps": [],
+    "env": {
+      "WINEDEBUG": "-all",
+      "WINEARCH": "win64"
+    },
+    "configdir": "drive_c/users/root/AppData/LocalLow/TheJaspel/Backpack Hero",
+    "attr": {
+      "title": "Backpack Hero",
+      "desc": "The inventory management roguelike! Collect rare items, organize your backpack, and vanquish your foes!",
+      "inst": "Add your game files to the data folder",
+      "genres": [
+        "adventure"
+      ],
+      "availability": "paid"
+    },
+    "source": {
+      "date_updated": "2025-11-13T22:08:24Z",
+      "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/backpackhero.zip",
+      "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/backpackhero/backpackhero/screenshot.png",
+      "readme_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/backpackhero/backpackhero/README.md",
+      "size": 362631,
+      "md5": "a9803e4bfc7948bb7e8e80328cff0d49"
+    }
+  },
+  {
+    "version": 1,
+    "name": "cuphead.zip",
+    "items": [
+      "Cuphead.sh",
+      "cuphead"
+    ],
+    "runner": "default",
+    "deps": [],
+    "env": {
+      "WINEDEBUG": "-all",
+      "WINEARCH": "win64"
+    },
+    "configdir": "drive_c/users/root/AppData/LocalLow/Studio MDHR/Cuphead",
+    "attr": {
+      "title": "Cuphead",
+      "desc": "Cuphead is a classic run and gun action game heavily focused on boss battles. Inspired by cartoons of the 1930s, the visuals and audio are painstakingly created with the same techniques of the era, i.e. traditional hand drawn cel animation, watercolor backgrounds, and original jazz recordings.",
+      "inst": "Add your game files to the data folder",
+      "genres": [
+        "action"
+      ],
+      "availability": "paid"
+    },
+    "source": {
+      "date_updated": "2025-11-13T22:08:24Z",
+      "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/cuphead.zip",
+      "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/cuphead/cuphead/screenshot.png",
+      "readme_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/cuphead/cuphead/README.md",
+      "size": 421946,
+      "md5": "a3a9dbd9ebb5b91eb07412985b32bbd9"
+    }
+  },
+  {
+    "version": 1,
+    "name": "fieldsofmistria.zip",
+    "items": [
+      "Fields of Mistria.sh",
+      "fieldsofmistria"
+    ],
+    "runner": "default",
+    "deps": [
+      "vcrun2022"
+    ],
+    "env": {
+      "WINEDEBUG": "-all",
+      "WINEARCH": "win64"
+    },
+    "configdir": "drive_c/users/steamuser/AppData/Local/FieldsOfMistria",
+    "attr": {
+      "title": "Fields of Mistria",
+      "desc": "Start your new life! Build the farm of your dreams as you discover a world brimming with possibilities. Magic, romance, and adventure all await you in this nostalgic farming / life sim RPG!",
+      "inst": "Add your game files to the data folder",
+      "genres": [
+        "adventure",
+        "rpg"
+      ],
+      "availability": "paid"
+    },
+    "source": {
+      "date_updated": "2025-11-13T22:08:24Z",
+      "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/fieldsofmistria.zip",
+      "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/fieldsofmistria/fieldsofmistria/screenshot.png",
+      "readme_url": "",
+      "size": 656410,
+      "md5": "850b6d1ebd672ccc81a48356b114d94f"
+    }
+  },
+  {
+    "version": 1,
+    "name": "ori.zip",
+    "items": [
+      "Ori and the Blind Forest.sh",
+      "ori"
+    ],
+    "runner": "default",
+    "deps": [],
+    "env": {
+      "WINEDEBUG": "-all",
+      "WINEARCH": "win64"
+    },
+    "configdir": [
+      "drive_c/users/root/AppData/Local/Ori and the Blind Forest",
+      "drive_c/users/root/AppData/Local/Ori and the Blind Forest DE"
+    ],
+    "attr": {
+      "title": "Ori and the Blind Forest",
+      "desc": "Ori and the Blind Forest tells the tale of a young orphan destined for heroics, through a visually stunning action-platformer crafted by Moon Studios for PC.",
+      "inst": "Add your game files to the data folder",
+      "genres": [
+        "action",
+        "adventure"
+      ],
+      "availability": "paid"
+    },
+    "source": {
+      "date_updated": "2025-11-13T22:08:24Z",
+      "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/ori.zip",
+      "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/ori/ori/screenshot.png",
+      "readme_url": "",
+      "size": 497944,
+      "md5": "cf2bf7c44b3ef3f273cd7c7a8e6ac5f2"
+    }
+  },
+  {
+    "version": 1,
+    "name": "tunic.zip",
+    "items": [
+      "Tunic.sh",
+      "tunic"
+    ],
+    "runner": "default",
+    "deps": [],
+    "env": {
+      "WINEDEBUG": "-all",
+      "WINEARCH": "win64"
+    },
+    "configdir": "drive_c/users/root/AppData/LocalLow/Andrew Shouldice/Secret Legend",
+    "attr": {
+      "title": "Tunic",
+      "desc": "Explore a land filled with lost legends, ancient powers, and ferocious monsters in TUNIC, an isometric action game about a small fox on a big adventure.",
+      "inst": "Add your game files to the data folder",
+      "genres": [
+        "action",
+        "adventure",
+        "rpg"
+      ],
+      "availability": "paid"
+    },
+    "source": {
+      "date_updated": "2025-11-13T22:08:24Z",
+      "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/tunic.zip",
+      "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/tunic/tunic/screenshot.jpg",
+      "readme_url": "",
+      "size": 779325,
+      "md5": "967d92bfc6d429e1bddfe91f01efc186"
+    }
+  },
+  {
+    "version": 1,
+    "name": "windswept.zip",
+    "items": [
+      "Windswept.sh",
+      "windswept"
+    ],
+    "runner": "default",
+    "deps": [
+      "vcrun2022"
+    ],
+    "env": {
+      "WINEDEBUG": "-all",
+      "WINEARCH": "win64"
+    },
+    "configdir": "drive_c/users/root/AppData/Local/Windswept",
+    "attr": {
+      "title": "Windswept",
+      "desc": "Marbles and Checkers need your help finding their way home after being swept away in a storm. In this 90s buddy-platformer there's a ton of stuff to do and even more to collect!",
+      "inst": "Add your game files to the data folder",
+      "genres": [
+        "action",
+        "adventure"
+      ],
+      "availability": "paid"
+    },
+    "source": {
+      "date_updated": "2025-11-13T22:08:24Z",
+      "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/windswept.zip",
+      "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/windswept/windswept/screenshot.png",
+      "readme_url": "",
+      "size": 694925,
+      "md5": "6405ec4bea71d2fd7a657d1fe1cabe8b"
+    }
+  }
+]
