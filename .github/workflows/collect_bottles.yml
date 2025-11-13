@@ -118,7 +118,7 @@ jobs:
         run: |
           CASK_JSON="$GITHUB_WORKSPACE/docs/winecask.json"
           TMP=$(mktemp)
-          jq --sort-keys 'sort_by(.attr.title)' "$CASK_JSON" > "$TMP" && mv "$TMP" "$CASK_JSON"
+          jq 'sort_by(.attr.title)' "$CASK_JSON" > "$TMP" && mv "$TMP" "$CASK_JSON"
 
       - name: Ensure release exists
         if: ${{ steps.bottles.outputs.Bottles != '' }}
