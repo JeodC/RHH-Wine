@@ -1,6 +1,38 @@
 [
   {
     "version": 1,
+    "name": "backpackhero.zip",
+    "items": [
+      "Backpack Hero.sh",
+      "backpackhero"
+    ],
+    "runner": "default",
+    "deps": [],
+    "env": {
+      "WINEDEBUG": "-all",
+      "WINEARCH": "win64"
+    },
+    "configdir": "drive_c/users/root/AppData/LocalLow/TheJaspel/Backpack Hero",
+    "attr": {
+      "title": "Backpack Hero",
+      "desc": "The inventory management roguelike! Collect rare items, organize your backpack, and vanquish your foes!",
+      "inst": "Add your game files to the data folder",
+      "genres": [
+        "adventure"
+      ],
+      "availability": "paid"
+    },
+    "source": {
+      "date_updated": "2025-11-13",
+      "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/backpackhero.zip",
+      "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/backpackhero/backpackhero/screenshot.png",
+      "readme_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/backpackhero/backpackhero/README.md",
+      "size": 362631,
+      "md5": "d11af475d481f7eeb9f1e156b64ee80f"
+    }
+  },
+  {
+    "version": 1,
     "name": "cuphead.zip",
     "items": [
       "Cuphead.sh",
