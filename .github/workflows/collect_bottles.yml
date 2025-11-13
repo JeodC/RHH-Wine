@@ -97,52 +97,51 @@ jobs:
         if: ${{ steps.bottles.outputs.bottles != '' }}
         run: |
           set -euo pipefail
-
           mapfile -t BOTTLE_DIRS < <(echo "${{ steps.bottles.outputs.bottles }}")
           ZIP_DIR="$GITHUB_WORKSPACE/temp_bottles"
           CASK_JSON="$GITHUB_WORKSPACE/docs/winecask.json"
 
           for BOTTLE_DIR in "${BOTTLE_DIRS[@]}"; do
             BOTTLE_JSON="$BOTTLE_DIR/bottle.json"
-            BOTTLENAME="$(basename "$BOTTLE_DIR")"
-
-            # ── Staging directory = parent of port dir ──
             STAGING_DIR="$(dirname "$BOTTLE_DIR")"
             STAGING_NAME="$(basename "$STAGING_DIR")"
 
-            echo "Bottle: $BOTTLENAME"
-            echo "  Bottle dir: $BOTTLE_DIR"
-            echo "  Staging dir: $STAGING_DIR (will be zipped)"
+            echo "Processing bottle in: $BOTTLE_DIR"
+            echo "  Staging dir: $STAGING_DIR → will be zipped as ${STAGING_NAME}.zip"
 
             [[ -f "$BOTTLE_JSON" ]] || { echo "bottle.json missing"; continue; }
 
-            # ── ZIP the *staging* directory ──
-            ZIP_PATH="$ZIP_DIR/${STAGING_NAME}.zip"
+            # Read the canonical name from bottle.json (includes .zip)
+            CANONICAL_NAME=$(jq -r '.name' "$BOTTLE_JSON")
+            [[ "$CANONICAL_NAME" == "null" ]] && { echo "name missing in bottle.json"; continue; }
+
+            # ZIP the staging directory
+            ZIP_PATH="$ZIP_DIR/${CANONICAL_NAME}"
             echo "  Zipping → $ZIP_PATH"
             (cd "$STAGING_DIR" && zip -r -q "$ZIP_PATH" .) || continue
 
-            # ── Screenshot & README from *port* dir (or staging?) ──
+            # Screenshot & README from bottle dir
             SCREENSHOT=$(find "$BOTTLE_DIR" -maxdepth 1 \( -iname "screenshot*.png" -o -iname "screenshot*.jpg" -o -iname "screenshot*.jpeg" \) | head -n1)
             [[ -f "$SCREENSHOT" ]] || { echo "No screenshot"; continue; }
 
             README=$(find "$BOTTLE_DIR" -maxdepth 1 \( -iname "README.md" -o -iname "readme.md" \) | head -n1 || echo "")
 
-            # ── Hash / size ──
+            # Hash / size
             MD5=$(md5sum "$ZIP_PATH" | awk '{print $1}')
             SIZE=$(stat -c %s "$ZIP_PATH")
-            DATE_UPDATED=$(date -u +"%Y-%m-%dT%H:%M")
+            DATE_UPDATED=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 
-            # ── URLs ──
+            # URLs
             SCREENSHOT_URL="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/${SCREENSHOT#"$GITHUB_WORKSPACE/"}"
             README_URL=""
             [[ -n "$README" ]] && README_URL="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/${README#"$GITHUB_WORKSPACE/"}"
-            DOWNLOAD_URL="https://github.com/${GITHUB_REPOSITORY}/releases/download/bottles-latest/${STAGING_NAME}.zip"
+            DOWNLOAD_URL="https://github.com/${GITHUB_REPOSITORY}/releases/download/bottles-latest/${CANONICAL_NAME}"
 
-            # ── Load original bottle.json ──
+            # Load full original JSON
             ORIGINAL_JSON=$(cat "$BOTTLE_JSON")
 
-            # ── Find existing entry by **staging name** (not bottle name) ──
-            EXISTING_ENTRY=$(jq -c --arg name "$STAGING_NAME" '.[] | select(.name == $name)' "$CASK_JSON" 2>/dev/null || echo "")
+            # Check if entry already exists (match by canonical name)
+            EXISTING_ENTRY=$(jq -c --arg name "$CANONICAL_NAME" '.[] | select(.name == $name)' "$CASK_JSON" 2>/dev/null || echo "")
 
             if [[ -n "$EXISTING_ENTRY" ]]; then
               OLD_MD5=$(echo "$EXISTING_ENTRY" | jq -r '.source.md5 // empty')
@@ -152,7 +151,7 @@ jobs:
               fi
             fi
 
-            # ── Merge metadata ──
+            # Merge: preserve full original (including name), only update source
             BOTTLE_JSON_MERGED=$(jq -n \
               --argjson original "$ORIGINAL_JSON" \
               --arg date_updated "$DATE_UPDATED" \
@@ -161,16 +160,16 @@ jobs:
               --arg screenshot_url "$SCREENSHOT_URL" \
               --arg size "$SIZE" \
               --arg md5 "$MD5" \
-              '$original + {name: $name, source: {date_updated: $date_updated, download_url: $download_url, screenshot_url: $screenshot_url, readme_url: $readme_url, size: ($size|tonumber), md5: $md5}}'
+              '$original + {source: {date_updated: $date_updated, download_url: $download_url, screenshot_url: $screenshot_url, readme_url: $readme_url, size: ($size|tonumber), md5: $md5}}'
             )
 
-            # ── **Replace** existing entry in cask.json ──
+            # Replace entry in ports.json using canonical name
             TMP=$(mktemp)
-            jq --arg name "$STAGING_NAME" --argjson bottlejson "$BOTTLE_JSON_MERGED" \
+            jq --arg name "$CANONICAL_NAME" --argjson bottlejson "$BOTTLE_JSON_MERGED" \
               'map(select(.name != $name)) + [$bottlejson]' \
               "$CASK_JSON" > "$TMP" && mv "$TMP" "$CASK_JSON"
 
-            echo "Updated $STAGING_NAME in winecask.json"
+            echo "Updated $CANONICAL_NAME in winecask.json"
           done
 
       # ────────────────────── SORT ──────────────────────
