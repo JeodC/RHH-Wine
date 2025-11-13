@@ -161,7 +161,6 @@ jobs:
               --arg screenshot_url "$SCREENSHOT_URL" \
               --arg size "$SIZE" \
               --arg md5 "$MD5" \
-              --arg name "$STAGING_NAME" \
               '$original + {name: $name, source: {date_updated: $date_updated, download_url: $download_url, screenshot_url: $screenshot_url, readme_url: $readme_url, size: ($size|tonumber), md5: $md5}}'
             )
 
