@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "name": "grappledog.zip",
+  "items": [
+    "Grapple Dog.sh",
+    "grappledog"
+  ],
+  "runner": "default",
+  "deps": [
+    "vcrun2022"
+  ],
+  "env": {
+    "WINEDEBUG": "-all",
+    "WINEARCH": "win64"
+  },
+  "configdir": "drive_c/users/root/AppData/Local/Grapple_Dog",
+  "attr": {
+    "title": "Grapple Dog",
+    "desc": "Jump, Swing and Zip your way through colourful worlds and exciting challenges in this unique 2D action-platformer! Master the power of the Grapple on your adventure to save the world!",
+    "inst": "Add your game files to the data folder",
+    "genres": [
+      "action",
+      "adventure"
+    ],
+    "availability": "paid"
+  }
+}
