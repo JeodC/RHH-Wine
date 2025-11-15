@@ -65,6 +65,36 @@
   },
   {
     "version": 1,
+    "name": "declinesdrops.zip",
+    "items": [
+      "Decline's Drops.sh",
+      "declinesdrops"
+    ],
+    "runner": "default",
+    "deps": [],
+    "env": {
+      "WINEDEBUG": "-all",
+      "WINEARCH": "win64"
+    },
+    "configdir": "drive_c/users/root/AppData/Local/D_D_21",
+    "attr": {
+      "title": "Decline's Drops",
+      "desc": "Grab your punching gloves, put your clogs on and smash your way in the world of Decline's Drops, a fully hand-drawn platform-brawler full of weird frogs, bizarre chickens and odd hydras! Avenge your destroyed garden and defeat the 6 heads of the Eternal Corp.! If you can, that is.",
+      "inst": "Add your game files to the data folder",
+      "genres": [],
+      "availability": "paid"
+    },
+    "source": {
+      "date_updated": "2025-11-15T16:22",
+      "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/declinesdrops.zip",
+      "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/declinesdrops/declinesdrops/screenshot.png",
+      "readme_url": "",
+      "size": 285098,
+      "md5": "c71590e0a3a84002d22f92694def3c43"
+    }
+  },
+  {
+    "version": 1,
     "name": "fieldsofmistria.zip",
     "items": [
       "Fields of Mistria.sh",
