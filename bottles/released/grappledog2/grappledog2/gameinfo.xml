@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gamelist>
+	<game>
+		<path>./Grapple Dog 2.sh</path>
+		<name>Grapple Dogs : Cosmic Canines</name>
+		<desc>Swing, jump, and blast through dimensions in the follow-up to the critically-acclaimed 2D action-platformer Grapple Dog. Zip between action-packed worlds as Pablo and Luna team up to save the cosmos in their own unique ways.</desc>
+		<image>./grappledog2/cover.png</image>
+		<releasedate>20240912T000000</releasedate>
+		<developer>Medallion Games</developer>
+		<genre>Action, Adventure, Indie</genre>
+	</game>
+</gamelist>
