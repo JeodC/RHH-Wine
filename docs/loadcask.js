@@ -122,10 +122,12 @@ async function loadcask() {
                             <h2 class="bottle-title">${title}</h2>
                             <p class="bottle-desc">${desc}</p>
                             <p class="download-count"><strong>Downloads:</strong> ${downloadCount}</p>
-                            ${genres ? `<div class="bottle-genres">${genres}</div>` : ''}
-                            <div class="bottle-buttons">
-                                <a class="details-link" href="${detailsHref}" target="_blank" rel="noopener noreferrer">Details</a>
-                                <a class="download-link" href="${downloadHref}" target="_blank" rel="noopener noreferrer">Download</a>
+                            <div class="bottle-footer">
+                                ${genres ? `<div class="bottle-genres">${genres}</div>` : ''}
+                                <div class="bottle-buttons">
+                                    <a class="details-link" href="${detailsHref}" target="_blank" rel="noopener noreferrer">Details</a>
+                                    <a class="download-link" href="${downloadHref}" target="_blank" rel="noopener noreferrer">Download</a>
+                                </div>
                             </div>
                         </div>
                     </div>`;

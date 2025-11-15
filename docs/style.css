@@ -201,16 +201,15 @@ body {
 	margin: 0 0 0.5rem;
 }
 
-/* Reserve space for descriptions to equalize card heights */
+/* Reserve space for description + download count */
 .bottle-desc {
-	min-height: 3.5rem;
-	margin: 0.3rem 0 0.8rem;
+    min-height: 4.5rem;
+    margin: 0.3rem 0 0.3rem;
 }
 
-/* Download count styling */
 .download-count {
-	margin-bottom: 0.8rem;
-	font-weight: 600;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
 }
 
 /* Genres */
