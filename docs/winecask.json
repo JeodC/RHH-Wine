@@ -135,6 +135,41 @@
   },
   {
     "version": 1,
+    "name": "grappledog2.zip",
+    "items": [
+      "Grapple Dog 2.sh",
+      "grappledog2"
+    ],
+    "runner": "default",
+    "deps": [
+      "vcrun2022"
+    ],
+    "env": {
+      "WINEDEBUG": "-all",
+      "WINEARCH": "win64"
+    },
+    "configdir": "drive_c/users/root/AppData/Roaming/GrappleDog2",
+    "attr": {
+      "title": "Grapple Dogs : Cosmic Canines",
+      "desc": "Swing, jump, and blast through dimensions in the follow-up to the critically-acclaimed 2D action-platformer Grapple Dog. Zip between action-packed worlds as Pablo and Luna team up to save the cosmos in their own unique ways.",
+      "inst": "Add your game files to the data folder",
+      "genres": [
+        "action",
+        "adventure"
+      ],
+      "availability": "paid"
+    },
+    "source": {
+      "date_updated": "2025-11-15T15:35",
+      "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/grappledog2.zip",
+      "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/grappledog2/grappledog2/screenshot.png",
+      "readme_url": "",
+      "size": 301134,
+      "md5": "610de9022d0b0c8bb36bcbd5e947a39c"
+    }
+  },
+  {
+    "version": 1,
     "name": "ori.zip",
     "items": [
       "Ori and the Blind Forest.sh",
