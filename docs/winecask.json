@@ -81,16 +81,19 @@
       "title": "Decline's Drops",
       "desc": "Grab your punching gloves, put your clogs on and smash your way in the world of Decline's Drops, a fully hand-drawn platform-brawler full of weird frogs, bizarre chickens and odd hydras! Avenge your destroyed garden and defeat the 6 heads of the Eternal Corp.! If you can, that is.",
       "inst": "Add your game files to the data folder",
-      "genres": [],
+      "genres": [
+        "action",
+        "adventure"
+      ],
       "availability": "paid"
     },
     "source": {
-      "date_updated": "2025-11-15T16:22",
+      "date_updated": "2025-11-15T16:46",
       "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/declinesdrops.zip",
       "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/declinesdrops/declinesdrops/screenshot.png",
       "readme_url": "",
-      "size": 285098,
-      "md5": "c71590e0a3a84002d22f92694def3c43"
+      "size": 285114,
+      "md5": "c4e84b75b63b3343d7e325ce55a8e2a5"
     }
   },
   {
@@ -216,16 +219,19 @@
       "title": "HoloCure - Save the Fans!",
       "desc": "Play as your favorite Vtubers from Hololive! Fight, explore, and clear your way through armies of fans and save them from their mind-control in this unofficial free fan-game.",
       "inst": "Add your game files to the data folder",
-      "genres": [],
+      "genres": [
+        "action",
+        "adventure"
+      ],
       "availability": "free"
     },
     "source": {
-      "date_updated": "2025-11-15T16:17",
+      "date_updated": "2025-11-15T16:46",
       "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/holocure.zip",
       "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/holocure/holocure/screenshot.png",
       "readme_url": "",
-      "size": 400835,
-      "md5": "b8466c14171ecabc8baceba538468f7d"
+      "size": 400850,
+      "md5": "9fdee5ac4d7683a03e5654877e96173f"
     }
   },
   {
