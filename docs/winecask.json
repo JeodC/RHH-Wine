@@ -23,12 +23,12 @@
       "availability": "paid"
     },
     "source": {
-      "date_updated": "2025-11-13T22:26",
+      "date_updated": "2025-11-15T14:54",
       "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/backpackhero.zip",
       "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/backpackhero/backpackhero/screenshot.png",
       "readme_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/backpackhero/backpackhero/README.md",
       "size": 362631,
-      "md5": "4b4ad1abd4c08bd0c35dbbd1ae6d1a31"
+      "md5": "d17ed92d5be49acafe505014582dbbda"
     }
   },
   {
@@ -55,12 +55,12 @@
       "availability": "paid"
     },
     "source": {
-      "date_updated": "2025-11-13T22:26",
+      "date_updated": "2025-11-15T14:54",
       "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/cuphead.zip",
       "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/cuphead/cuphead/screenshot.png",
       "readme_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/cuphead/cuphead/README.md",
-      "size": 421946,
-      "md5": "8cdde5677fe6bd554659ef882bbb09ea"
+      "size": 423319,
+      "md5": "17da0300075516fc3370117ec1251cb5"
     }
   },
   {
@@ -90,12 +90,12 @@
       "availability": "paid"
     },
     "source": {
-      "date_updated": "2025-11-13T22:26",
+      "date_updated": "2025-11-15T14:54",
       "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/fieldsofmistria.zip",
       "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/fieldsofmistria/fieldsofmistria/screenshot.png",
       "readme_url": "",
-      "size": 656410,
-      "md5": "752ab015ac704daceb0922ff5e025d73"
+      "size": 657555,
+      "md5": "2241de9af2491138209215693fa04700"
     }
   },
   {
@@ -125,12 +125,12 @@
       "availability": "paid"
     },
     "source": {
-      "date_updated": "2025-11-14T12:47",
+      "date_updated": "2025-11-15T14:54",
       "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/grappledog.zip",
       "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/grappledog/grappledog/screenshot.png",
       "readme_url": "",
-      "size": 300305,
-      "md5": "4c386dc53ebc10bf94385c6c933994e5"
+      "size": 301458,
+      "md5": "e79a8bb3fc683072c4f1aec4cfe46028"
     }
   },
   {
@@ -161,12 +161,12 @@
       "availability": "paid"
     },
     "source": {
-      "date_updated": "2025-11-13T22:26",
+      "date_updated": "2025-11-15T14:54",
       "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/ori.zip",
       "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/ori/ori/screenshot.png",
       "readme_url": "",
-      "size": 497944,
-      "md5": "f49cb8d374ee71ce62d40d5cbbebf180"
+      "size": 499386,
+      "md5": "7056626b6614f2ce8d1ff323690e65c9"
     }
   },
   {
@@ -195,12 +195,12 @@
       "availability": "paid"
     },
     "source": {
-      "date_updated": "2025-11-13T22:26",
+      "date_updated": "2025-11-15T14:54",
       "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/tunic.zip",
       "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/tunic/tunic/screenshot.jpg",
       "readme_url": "",
-      "size": 779325,
-      "md5": "5f46f32dedf5dfae1eeb57313006a0f0"
+      "size": 780710,
+      "md5": "d95d6835bd60dc52fe8a6fe69c81fc92"
     }
   },
   {
@@ -230,12 +230,12 @@
       "availability": "paid"
     },
     "source": {
-      "date_updated": "2025-11-13T22:26",
+      "date_updated": "2025-11-15T14:54",
       "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/windswept.zip",
       "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/windswept/windswept/screenshot.png",
       "readme_url": "",
-      "size": 694925,
-      "md5": "da240fcafa8884a340909540ae9796e2"
+      "size": 696079,
+      "md5": "bc68a07df50f913d0950ba8d107d2f7e"
     }
   }
 ]
