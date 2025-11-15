@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "name": "bottledir.zip",
+  "items": [
+    "Bottle Name.sh",
+    "bottledir"
+  ],
+  "runner": "default",
+  "deps": [
+  ],
+  "env": {
+    "WINEDEBUG": "-all",
+    "WINEARCH": "win64"
+  },
+  "configdir": "",
+  "attr": {
+    "title": "",
+    "desc": "",
+    "inst": "Add your game files to the data folder",
+    "genres": [
+    ],
+    "availability": "paid"
+  }
+}

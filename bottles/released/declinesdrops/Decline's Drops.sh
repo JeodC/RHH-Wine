@@ -23,8 +23,8 @@ get_controls
 # LOCAL VARIABLES
 # ================================================
 
-GAMEDIR="/$directory/windows/cuphead"
-EXEC="$GAMEDIR/data/Cuphead.exe"
+GAMEDIR="/$directory/windows/declinesdrops"
+EXEC="$GAMEDIR/data/Decline_s_Drops_V_1_2.exe"
 BASE=$(basename "$EXEC")
 
 SPLASH="/$directory/windows/.winecellar/tools/splash"
@@ -127,19 +127,10 @@ else
 fi
 
 # Config Setup
-CONFIGDIRS=$(jq -r '.configdir[]?' "$GAMEDIR/bottle.json")
-if [ -n "$CONFIGDIRS" ] && [ -n "$WINEPREFIX" ]; then
+CONFIGDIR=$(jq -r '.configdir // empty' "$GAMEDIR/bottle.json")
+if [ -n "$CONFIGDIR" ] && [ -n "$WINEPREFIX" ]; then
     mkdir -p "$GAMEDIR/config"
-    
-    while IFS= read -r dir; do
-        SRC="$WINEPREFIX/$dir"
-        if [ -d "$SRC" ]; then
-            echo "[CONFIG]: Binding $SRC -> $GAMEDIR/config"
-            bind_directories "$SRC" "$GAMEDIR/config"
-        else
-            echo "[CONFIG]: Warning: $SRC does not exist, skipping."
-        fi
-    done <<< "$CONFIGDIRS"
+    bind_directories "$WINEPREFIX/$CONFIGDIR" "$GAMEDIR/config"
 fi
 
 # ================================================
@@ -175,7 +166,7 @@ fi
 # ================================================
 
 # Run the game
-$GPTOKEYB "$BASE" -c "$GAMEDIR/cuphead.gptk" &
+$GPTOKEYB "$BASE" -c "$GAMEDIR/declinesdrops.gptk" &
 $BOX $WINE "$EXEC"
 
 # Kill processes

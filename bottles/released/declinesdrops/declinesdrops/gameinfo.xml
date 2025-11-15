@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gamelist>
+	<game>
+		<path>./Decline's Drops.sh</path>
+		<name>Decline's Drops</name>
+		<desc>Grab your punching gloves, put your clogs on and smash your way in the world of Decline's Drops, a fully hand-drawn platform-brawler full of weird frogs, bizarre chickens and odd hydras! Avenge your destroyed garden and defeat the 6 heads of the Eternal Corp.! If you can, that is.</desc>
+		<image>./declinesdrops/cover.png</image>
+		<releasedate>20241010</releasedate>
+		<developer>Moulin aux Bulles Studio</developer>
+		<genre>Action, Adventure, Indie</genre>
+	</game>
+</gamelist>
