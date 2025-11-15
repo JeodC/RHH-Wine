@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gamelist>
+	<game>
+		<path>./Holocure.sh</path>
+		<name>HoloCure - Save the Fans!</name>
+		<desc>Play as your favorite Vtubers from Hololive! Fight, explore, and clear your way through armies of fans and save them from their mind-control in this unofficial free fan-game.</desc>
+		<image>./holocure/cover.png</image>
+		<releasedate>20230816</releasedate>
+		<developer>KayAnimate</developer>
+		<genre>Action, Adventure, Casual, Indie</genre>
+	</game>
+</gamelist>

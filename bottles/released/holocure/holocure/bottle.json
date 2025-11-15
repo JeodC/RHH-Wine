@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "name": "holocure.zip",
+  "items": [
+    "Holocure.sh",
+    "holocure"
+  ],
+  "runner": "default",
+  "deps": [
+  ],
+  "env": {
+    "WINEDEBUG": "-all",
+    "WINEARCH": "win64"
+  },
+  "configdir": "drive_c/users/root/AppData/Local/HoloCure",
+  "attr": {
+    "title": "HoloCure - Save the Fans!",
+    "desc": "Play as your favorite Vtubers from Hololive! Fight, explore, and clear your way through armies of fans and save them from their mind-control in this unofficial free fan-game.",
+    "inst": "Add your game files to the data folder",
+    "genres": [
+    ],
+    "availability": "free"
+  }
+}

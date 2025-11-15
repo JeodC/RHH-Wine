@@ -12,7 +12,8 @@
     "WINEDEBUG": "-all",
     "WINEARCH": "win64"
   },
-  "configdir": "",
+  "configdir": [
+  ],
   "attr": {
     "title": "",
     "desc": "",
