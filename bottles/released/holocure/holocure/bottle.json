@@ -18,6 +18,8 @@
     "desc": "Play as your favorite Vtubers from Hololive! Fight, explore, and clear your way through armies of fans and save them from their mind-control in this unofficial free fan-game.",
     "inst": "Add your game files to the data folder",
     "genres": [
+	  "action",
+	  "adventure"
     ],
     "availability": "free"
   }

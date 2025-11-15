@@ -18,6 +18,8 @@
     "desc": "Grab your punching gloves, put your clogs on and smash your way in the world of Decline's Drops, a fully hand-drawn platform-brawler full of weird frogs, bizarre chickens and odd hydras! Avenge your destroyed garden and defeat the 6 heads of the Eternal Corp.! If you can, that is.",
     "inst": "Add your game files to the data folder",
     "genres": [
+	  "action",
+	  "adventure"
     ],
     "availability": "paid"
   }
