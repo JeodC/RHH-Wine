@@ -296,12 +296,12 @@
       "availability": "paid"
     },
     "source": {
-      "date_updated": "2025-11-16T00:55",
+      "date_updated": "2025-11-16T01:17",
       "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/tmosonic.zip",
       "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/tmosonic/tmosonic/screenshot.png",
-      "readme_url": "",
-      "size": 351380,
-      "md5": "21447b71ca340ee0c6c88d93204c021e"
+      "readme_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/tmosonic/tmosonic/README.md",
+      "size": 351772,
+      "md5": "8d3491eeba0693efbfefa7e807ad074d"
     }
   },
   {
