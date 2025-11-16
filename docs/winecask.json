@@ -272,6 +272,40 @@
   },
   {
     "version": 1,
+    "name": "tmosonic.zip",
+    "items": [
+      "The Murder of Sonic The Hedgehog.sh",
+      "tmosonic"
+    ],
+    "runner": "default",
+    "deps": [],
+    "env": {
+      "WINEDEBUG": "-all",
+      "WINEARCH": "win64"
+    },
+    "configdir": [
+      "drive_c/users/root/AppData/LocalLow/Sonic Social/The Murder of Sonic The Hedgehog"
+    ],
+    "attr": {
+      "title": "The Murder of Sonic The Hedgehog",
+      "desc": "Sonic the Hedgehog...was murdered!? Get to the bottom of the mystery in this brand-new adventure!",
+      "inst": "Add your game files to the data folder",
+      "genres": [
+        "visual novel"
+      ],
+      "availability": "paid"
+    },
+    "source": {
+      "date_updated": "2025-11-16T00:55",
+      "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/tmosonic.zip",
+      "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/tmosonic/tmosonic/screenshot.png",
+      "readme_url": "",
+      "size": 351380,
+      "md5": "21447b71ca340ee0c6c88d93204c021e"
+    }
+  },
+  {
+    "version": 1,
     "name": "tunic.zip",
     "items": [
       "Tunic.sh",
