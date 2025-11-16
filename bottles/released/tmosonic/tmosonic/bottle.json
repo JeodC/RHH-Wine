@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "name": "tmosonic.zip",
+  "items": [
+    "The Murder of Sonic The Hedgehog.sh",
+    "tmosonic"
+  ],
+  "runner": "default",
+  "deps": [
+  ],
+  "env": {
+    "WINEDEBUG": "-all",
+    "WINEARCH": "win64"
+  },
+  "configdir": [
+    "drive_c/users/root/AppData/LocalLow/Sonic Social/The Murder of Sonic The Hedgehog"
+  ],
+  "attr": {
+    "title": "The Murder of Sonic The Hedgehog",
+    "desc": "Sonic the Hedgehog...was murdered!? Get to the bottom of the mystery in this brand-new adventure!",
+    "inst": "Add your game files to the data folder",
+    "genres": [
+	  "visual novel"
+    ],
+    "availability": "paid"
+  }
+}
