@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "name": "ori2.zip",
+  "items": [
+    "Ori and the Will of the Wisps.sh",
+    "ori2"
+  ],
+  "runner": "default",
+  "deps": [
+  ],
+  "env": {
+    "WINEDEBUG": "-all",
+    "WINEARCH": "win64"
+  },
+  "configdir": [
+    "drive_c/users/root/AppData/Local/Ori and the Will of The Wisps"
+  ],
+  "attr": {
+    "title": "Ori and the Will of the Wisps",
+    "desc": "",
+    "inst": "Add your game files to the data folder",
+    "genres": [
+	  "action",
+      "adventure"
+    ],
+    "availability": "paid"
+  }
+}

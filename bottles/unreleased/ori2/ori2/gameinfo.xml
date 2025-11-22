@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gamelist>
+	<game>
+		<path>./Ori and the Will of the Wisps.sh</path>
+		<name>Ori and the Will of the Wisps</name>
+		<desc>Embark on a new journey in a vast, exotic world where you’ll encounter towering enemies and challenging puzzles on your quest to unravel Ori’s destiny.</desc>
+		<image>./ori2/cover.png</image>
+		<releasedate>20200311</releasedate>
+		<developer>Moon Studios GmbH</developer>
+		<genre>Action, Adventure</genre>
+	</game>
+</gamelist>
