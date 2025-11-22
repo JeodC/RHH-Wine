@@ -41,14 +41,14 @@ chmod 777 "$SPLASH"
 # WINE RUNNER CONFIG
 # ================================================
 
+# Function to find the latest runner version
+find_runner_dir() {
+    # Find any folder under ../.winecellar that matches $1 (case-insensitive)
+    # Sorts by version and takes the latest one (tail -n1)
+    find "../.winecellar" -maxdepth 1 -type d -iname "*$1*" | sort -V | tail -n1
+}
+
 # Runner selection
-# Default = use $PATH built-ins
-# Proton = use .winecellar/proton
-# Lutris = use .winecellar/lutris
-# Wine-XX.XX = use specific version in .winecellar/wine-xx.xx
-## Each of these will have a prefix named for their folder
-## i.e. either ~/.wine, ~/.proton, ~/.lutris, etc
-## If win32 is needed, 32 will be appended to the prefix
 RUNNER=$(jq -r '.runner // "default"' "$GAMEDIR/bottle.json")
 WINEARCH=$(jq -r '.env.WINEARCH // "win64"' "$GAMEDIR/bottle.json")
 
@@ -56,25 +56,38 @@ case "$RUNNER" in
     default)
         # Use PATH wine/box64 with standard .wine prefix
         WINEPREFIX="$HOME/.wine"
-        [ "$WINEARCH" = "win32" ] && WINEPREFIX="${WINEPREFIX}32"
         WINE="wine"
-        BOX=$([ "$WINEARCH" = "win32" ] && echo "box86" || echo "box64")
         ;;
     proton)
-        # Find any folder under ~/.winecellar that contains "proton" (case-insensitive)
-        PROTON_DIR=$(find "$HOME/.winecellar" -maxdepth 1 -type d -iname "*proton*" | sort -V | tail -n1)
-        if [ -z "$PROTON_DIR" ]; then
-            echo "Error: No proton folder found in ~/.winecellar"
-            exit 1
-        fi
-
-        WINEPREFIX="$PROTON_DIR"
-        [ "$WINEARCH" = "win32" ] && WINEPREFIX="${WINEPREFIX}32"
-
-        WINE="$PROTON_DIR/bin/wine"
-        BOX=$([ "$WINEARCH" = "win32" ] && echo "$PROTON_DIR/box86" || echo "$PROTON_DIR/box64")
+        RUNNER_DIR=$(find_runner_dir "proton")
+        WINEPREFIX="$HOME/.proton"
+        WINE="$RUNNER_DIR/bin/wine"
+        ;;
+    wine-wow64)
+        RUNNER_DIR=$(find_runner_dir "wine-wow64")
+        WINEPREFIX="$HOME/.wine"
+        WINE="$(readlink -f "$RUNNER_DIR/bin/wine")"
+        ;;
+    *)
+        echo "Error: Unknown runner '$RUNNER' specified in bottle.json"
+        exit 1
         ;;
 esac
+
+# Append 32 to prefix if win32 architecture is required
+[ "$WINEARCH" = "win32" ] && WINEPREFIX="${WINEPREFIX}32"
+# Set BOX based on architecture
+BOX=$([ "$WINEARCH" = "win32" ] && echo "box86" || echo "box64")
+
+# Error checking for non-default runners and PATH setup
+if [ "$RUNNER" != "default" ]; then
+    if [ -z "$RUNNER_DIR" ] || [ ! -x "$WINE" ]; then
+        echo "Error: Required runner '$RUNNER' not found or is not executable."
+        exit 1
+    fi
+    # Only export PATH once, if we're using a custom runner
+    export PATH="$(dirname "$WINE"):$PATH"
+fi
 
 echo "[LAUNCHER]: Using runner '$RUNNER' with WINEPREFIX='$WINEPREFIX' BOX='$BOX' WINE='$WINE'"
 
