@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "name": "tombraider4-6.zip",
+  "items": [
+    "Tomb Raider IV-VI Remastered.sh",
+    "tombraider4-6"
+  ],
+  "runner": "default",
+  "deps": [
+  ],
+  "env": {
+    "WINEDEBUG": "-all",
+    "WINEARCH": "win64"
+  },
+  "configdir": [
+    "drive_c/users/root/AppData/Roaming/TRX2"
+  ],
+  "attr": {
+    "title": "Tomb Raider IV-VI Remastered",
+    "desc": "Her legacy lives on! Play the next series of Tomb Raider adventures in this remastered collection of Lara Croft's darkest adventures.",
+    "inst": "Add your game files to the data folder",
+    "genres": [
+    ],
+    "availability": "paid"
+  }
+}

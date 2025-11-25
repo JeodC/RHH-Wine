@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "name": "tombraider1-3.zip",
+  "items": [
+    "Tomb Raider I-III Remastered.sh",
+    "tombraider1-3"
+  ],
+  "runner": "default",
+  "deps": [
+  ],
+  "env": {
+    "WINEDEBUG": "-all",
+    "WINEARCH": "win64"
+  },
+  "configdir": [
+    "drive_c/users/root/AppData/Roaming/TRX"
+  ],
+  "attr": {
+    "title": "Tomb Raider I-III Remastered",
+    "desc": "Play the original three Tomb Raider adventures with all expansions and secret levels in this definitive collection.",
+    "inst": "Add your game files to the data folder",
+    "genres": [
+    ],
+    "availability": "paid"
+  }
+}
