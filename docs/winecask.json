@@ -306,6 +306,70 @@
   },
   {
     "version": 1,
+    "name": "tombraider1-3.zip",
+    "items": [
+      "Tomb Raider I-III Remastered.sh",
+      "tombraider1-3"
+    ],
+    "runner": "default",
+    "deps": [],
+    "env": {
+      "WINEDEBUG": "-all",
+      "WINEARCH": "win64"
+    },
+    "configdir": [
+      "drive_c/users/root/AppData/Roaming/TRX"
+    ],
+    "attr": {
+      "title": "Tomb Raider I-III Remastered",
+      "desc": "Play the original three Tomb Raider adventures with all expansions and secret levels in this definitive collection.",
+      "inst": "Add your game files to the data folder",
+      "genres": [],
+      "availability": "paid"
+    },
+    "source": {
+      "date_updated": "2025-11-25T22:57",
+      "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/tombraider1-3.zip",
+      "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/tombraider1-3/tombraider1-3/screenshot.png",
+      "readme_url": "",
+      "size": 610185,
+      "md5": "585d13c8a6b508cc3a83121d02741f91"
+    }
+  },
+  {
+    "version": 1,
+    "name": "tombraider4-6.zip",
+    "items": [
+      "Tomb Raider IV-VI Remastered.sh",
+      "tombraider4-6"
+    ],
+    "runner": "default",
+    "deps": [],
+    "env": {
+      "WINEDEBUG": "-all",
+      "WINEARCH": "win64"
+    },
+    "configdir": [
+      "drive_c/users/root/AppData/Roaming/TRX2"
+    ],
+    "attr": {
+      "title": "Tomb Raider IV-VI Remastered",
+      "desc": "Her legacy lives on! Play the next series of Tomb Raider adventures in this remastered collection of Lara Croft's darkest adventures.",
+      "inst": "Add your game files to the data folder",
+      "genres": [],
+      "availability": "paid"
+    },
+    "source": {
+      "date_updated": "2025-11-25T22:57",
+      "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/tombraider4-6.zip",
+      "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/tombraider4-6/tombraider4-6/screenshot.png",
+      "readme_url": "",
+      "size": 607469,
+      "md5": "1bd749cd907b3428b0a55b8ef1d5687f"
+    }
+  },
+  {
+    "version": 1,
     "name": "tunic.zip",
     "items": [
       "Tunic.sh",
