@@ -1,0 +1,17 @@
+back = esc
+start = enter
+
+a = enter
+b = backspace
+x = z
+y = 1
+
+l1 = q
+l2 = f6
+r1 = e
+r2 = delete
+
+up = up
+down = down
+left = left
+right = right

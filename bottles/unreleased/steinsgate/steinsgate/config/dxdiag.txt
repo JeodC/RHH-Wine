@@ -1,0 +1,18 @@
+------------------
+System Information
+------------------
+Time of this report: 11/26/2025, 07:45:07
+       Machine name: THOR
+   Operating System: Windows XP Professional
+           Language: English (Regional Setting: English)
+System Manufacturer: 
+       System Model: 
+               BIOS: 
+          Processor:                   Box64 on Cortex-A510 @2.96 GHz(8 CPUs), ~2016MHz
+             Memory: 7152MB RAM
+          Page File: 1705MB used, 5830MB available
+        Windows Dir: C:\windows
+    DirectX Version: = "DirectX 9.0c (4.09.0000.0904)
+DX Setup Parameters: Not present
+     DxDiag Version: 
+

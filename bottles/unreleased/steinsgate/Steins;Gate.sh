@@ -23,8 +23,8 @@ get_controls
 # LOCAL VARIABLES
 # ================================================
 
-GAMEDIR="/$directory/windows/bottledir"
-EXEC="$GAMEDIR/data/EXECNAME"
+GAMEDIR="/$directory/windows/steinsgate"
+EXEC="$GAMEDIR/data/Game.exe"
 BASE=$(basename "$EXEC")
 
 SPLASH="/$directory/windows/.winecellar/tools/splash"
@@ -189,8 +189,8 @@ fi
 # ================================================
 
 # Run the game
-$GPTOKEYB "$BASE" -c "$GAMEDIR/bottledir.gptk" &
-$BOX $WINE "$EXEC"
+$GPTOKEYB "$BASE" -c "$GAMEDIR/steinsgate.gptk" &
+$BOX $WINE "$EXEC" mages_sgate
 
 # Kill processes
 wineserver -k

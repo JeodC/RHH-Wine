@@ -1,0 +1,14 @@
+Operating System: Windows 10 Version 2009 (10.0.19045)
+Wine: Yes
+Wine version: 10.19
+Wine build ID: wine-10.19.r0.g02295978 ( TkG Staging NTsync )
+Wine host version sysname: Linux
+Wine host version release: 6.17.9
+Game path: Z:/roms/windows/steinsgate/data
+Save path: C:/users/root/Documents/My Games/mages_steam/STEINS;GATE/eng
+Patch config path: C:/users/root/AppData/Local/Committee of Zero/SGHD
+Game.exe hash: db0629879debb6d3d977c392b55d000d
+enscript.mpk hash: 7e94a8fccfffa83268264e2c5a2edc8c
+Can load d3dx9_43.dll: Yes
+Can load XAudio2_7.dll: Yes
+

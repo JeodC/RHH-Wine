@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gamelist>
+	<game>
+		<path>./Steins;Gate.sh</path>
+		<name>Steins;Gate</name>
+		<desc>Rintaro Okabe has discovered the power of time travel, and along with it a sinister conspiracy...Get inside the head of a mad scientist with the original Steins;Gate visual novel!</desc>
+		<image>./steinsgate/cover.png</image>
+		<releasedate></releasedate>
+		<developer>MAGES. Inc.</developer>
+		<genre>Visual Novel</genre>
+	</game>
+</gamelist>

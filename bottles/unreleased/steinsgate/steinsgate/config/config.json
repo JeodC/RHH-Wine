@@ -1,0 +1,11 @@
+{
+    "__schema_version": 4,
+    "controllerEnabled": false,
+    "cosplayPatch": false,
+    "enableDxvk": true,
+    "hqFmvAudio": true,
+    "improveDialogueOutlines": true,
+    "karaokeSubs": "all",
+    "selectedController": "",
+    "showAllSettings": true
+}
