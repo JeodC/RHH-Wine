@@ -111,10 +111,10 @@
       "WINEDEBUG": "-all",
       "WINEARCH": "win64"
     },
-    "configdir": "drive_c/users/steamuser/AppData/Local/FieldsOfMistria",
+    "configdir": "drive_c/users/root/AppData/Local/FieldsOfMistria",
     "attr": {
       "title": "Fields of Mistria",
-      "desc": "Start your new life! Build the farm of your dreams as you discover a world brimming with possibilities. Magic, romance, and adventure all await you in this nostalgic farming / life sim RPG!",
+      "desc": "Start your new life! Build the farm of your dreams as you discover a world brimming with possibilities. Magic, romance, and adventure all await you in this nostalgic farming / life sim RPG! NOTE: This game currently has a problem with invalid saves.",
       "inst": "Add your game files to the data folder",
       "genres": [
         "adventure",
@@ -123,12 +123,12 @@
       "availability": "paid"
     },
     "source": {
-      "date_updated": "2025-11-15T14:54",
+      "date_updated": "2025-11-27T21:11",
       "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/fieldsofmistria.zip",
       "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/fieldsofmistria/fieldsofmistria/screenshot.png",
       "readme_url": "",
-      "size": 657555,
-      "md5": "2241de9af2491138209215693fa04700"
+      "size": 657676,
+      "md5": "1e26067db7d10a9a0e641c50641dc6c8"
     }
   },
   {
