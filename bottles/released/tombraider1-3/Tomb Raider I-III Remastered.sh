@@ -30,7 +30,7 @@ BASE=$(basename "$EXEC")
 SPLASH="/$directory/windows/.winecellar/tools/splash"
 LOG="$GAMEDIR/log.txt"
 
-cd "$GAMEDIR"
+cd "$GAMEDIR/data"
 > "$LOG" && exec > >(tee "$LOG") 2>&1
 
 # Splash

@@ -13,10 +13,10 @@
     "WINEDEBUG": "-all",
     "WINEARCH": "win64"
   },
-  "configdir": "drive_c/users/steamuser/AppData/Local/FieldsOfMistria",
+  "configdir": "drive_c/users/root/AppData/Local/FieldsOfMistria",
   "attr": {
     "title": "Fields of Mistria",
-    "desc": "Start your new life! Build the farm of your dreams as you discover a world brimming with possibilities. Magic, romance, and adventure all await you in this nostalgic farming / life sim RPG!",
+    "desc": "Start your new life! Build the farm of your dreams as you discover a world brimming with possibilities. Magic, romance, and adventure all await you in this nostalgic farming / life sim RPG! NOTE: This game currently has a problem with invalid saves.",
     "inst": "Add your game files to the data folder",
     "genres": [
       "adventure",
