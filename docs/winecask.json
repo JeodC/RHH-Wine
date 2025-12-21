@@ -203,6 +203,40 @@
   },
   {
     "version": 1,
+    "name": "hades.zip",
+    "items": [
+      "Hades.sh",
+      "hades"
+    ],
+    "runner": "default",
+    "deps": [],
+    "env": {
+      "WINEDEBUG": "-all",
+      "WINEARCH": "win64"
+    },
+    "configdir": [
+      "drive_c/users/root/Documents/Saved Games/Hades"
+    ],
+    "attr": {
+      "title": "Hades",
+      "desc": "Defy the god of the dead as you battle out of the Underworld in this rogue-like dungeon crawler from the creators of Bastion and Transistor.",
+      "inst": "Add your game files to the data folder",
+      "genres": [
+        "Action"
+      ],
+      "availability": "paid"
+    },
+    "source": {
+      "date_updated": "2025-12-21T22:55",
+      "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/hades.zip",
+      "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/hades/hades/screenshot.png",
+      "readme_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/hades/hades/README.md",
+      "size": 447825,
+      "md5": "6cc582638ae3e2b967eee5a14e48b70e"
+    }
+  },
+  {
+    "version": 1,
     "name": "holocure.zip",
     "items": [
       "Holocure.sh",
