@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "name": "hades.zip",
+  "items": [
+    "Hades.sh",
+    "hades"
+  ],
+  "runner": "default",
+  "deps": [
+  ],
+  "env": {
+    "WINEDEBUG": "-all",
+    "WINEARCH": "win64"
+  },
+  "configdir": [
+    "drive_c/users/root/Documents/Saved Games/Hades"
+  ],
+  "attr": {
+    "title": "Hades",
+    "desc": "Defy the god of the dead as you battle out of the Underworld in this rogue-like dungeon crawler from the creators of Bastion and Transistor.",
+    "inst": "Add your game files to the data folder",
+    "genres": [
+	  "Action"
+    ],
+    "availability": "paid"
+  }
+}
