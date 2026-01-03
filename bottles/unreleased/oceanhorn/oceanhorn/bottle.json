@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "name": "oceanhorn.zip",
+  "items": [
+    "Oceanhorn.sh",
+    "oceanhorn"
+  ],
+  "runner": "default",
+  "deps": [
+  ],
+  "env": {
+    "WINEDEBUG": "-all",
+    "WINEARCH": "win32"
+  },
+  "configdir": [
+  ],
+  "attr": {
+    "title": "Oceanhorn",
+    "desc": "",
+    "inst": "Add your game files to the data folder",
+    "genres": [
+    ],
+    "availability": "paid"
+  }
+}

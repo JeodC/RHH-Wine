@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "name": "ladxhd.zip",
+  "items": [
+    "Link's Awakening DX HD.sh",
+    "ladxhd"
+  ],
+  "runner": "default",
+  "deps": [
+    "dxvk",
+    "dotnetdesktop6"
+  ],
+  "env": {
+    "WINEDEBUG": "-all",
+    "WINEARCH": "win64",
+	"WINETRICKS_DOWNLOADER": "curl",
+	"DOTNET_SYSTEM_GLOBALIZATION_INVARIANT": "1",
+	"WINE_CASE_SENSITIVE": "0"
+  },
+  "configdir": [
+  ],
+  "attr": {
+    "title": "The Legend of Zelda : Link's Awakening DX HD",
+    "desc": "Play Link's Awakening with modern QoL features!",
+    "inst": "Add your game files to the data folder",
+    "genres": [
+    ],
+    "availability": "free"
+  }
+}
