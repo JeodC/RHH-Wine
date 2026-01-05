@@ -140,7 +140,7 @@ else
 fi
 
 # Config Setup
-CONFIGDIRS=$(jq -r '.configdir // empty' "$GAMEDIR/bottle.json")
+CONFIGDIRS=$(jq -r '.configdir[]? // empty' "$GAMEDIR/bottle.json")
 if [ -n "$CONFIGDIRS" ] && [ -n "$WINEPREFIX" ]; then
     mkdir -p "$GAMEDIR/config"
 
