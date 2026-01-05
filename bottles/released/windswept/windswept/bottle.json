@@ -13,7 +13,9 @@
     "WINEDEBUG": "-all",
     "WINEARCH": "win64"
   },
-  "configdir": "drive_c/users/root/AppData/Local/Windswept",
+  "configdir": [
+    "drive_c/users/root/AppData/Local/Windswept"
+  ],
   "attr": {
     "title": "Windswept",
     "desc": "Marbles and Checkers need your help finding their way home after being swept away in a storm. In this 90s buddy-platformer there's a ton of stuff to do and even more to collect!",

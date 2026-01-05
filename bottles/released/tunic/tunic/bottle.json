@@ -12,7 +12,9 @@
     "WINEDEBUG": "-all",
     "WINEARCH": "win64"
   },
-  "configdir": "drive_c/users/root/AppData/LocalLow/Andrew Shouldice/Secret Legend",
+  "configdir": [
+    "drive_c/users/root/AppData/LocalLow/Andrew Shouldice/Secret Legend"
+  ],
   "attr": {
     "title": "Tunic",
     "desc": "Explore a land filled with lost legends, ancient powers, and ferocious monsters in TUNIC, an isometric action game about a small fox on a big adventure.",

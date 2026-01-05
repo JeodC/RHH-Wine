@@ -12,7 +12,9 @@
     "WINEDEBUG": "-all",
     "WINEARCH": "win64"
   },
-  "configdir": "drive_c/users/root/AppData/LocalLow/TheJaspel/Backpack Hero",
+  "configdir": [
+    "drive_c/users/root/AppData/LocalLow/TheJaspel/Backpack Hero"
+  ],
   "attr": {
     "title": "Backpack Hero",
     "desc": "The inventory management roguelike! Collect rare items, organize your backpack, and vanquish your foes!",

@@ -134,19 +134,32 @@ else
 fi
 
 # Config Setup
-CONFIGDIR=$(jq -r '.configdir // empty' "$GAMEDIR/bottle.json")
-if [ -n "$CONFIGDIR" ] && [ -n "$WINEPREFIX" ]; then
+CONFIGDIRS=$(jq -r '.configdir // empty' "$GAMEDIR/bottle.json")
+if [ -n "$CONFIGDIRS" ] && [ -n "$WINEPREFIX" ]; then
     mkdir -p "$GAMEDIR/config"
+
     if [ -f "$GAMEDIR/data/oriDE.exe" ]; then
         EXEC="$GAMEDIR/data/oriDE.exe"
         BASE=$(basename "$EXEC")
         GAMESPLASH="$GAMEDIR/splashDE.png"
-        bind_directories "$WINEPREFIX/drive_c/users/root/AppData/Local/Ori and the Blind Forest DE" "$GAMEDIR/config"
+        LOCAL_CONFIG="$GAMEDIR/config/OriDE"
+        WINEDEST="$WINEPREFIX/drive_c/users/root/AppData/Local/Ori and the Blind Forest DE"
     else
         EXEC="$GAMEDIR/data/ori.exe"
         BASE=$(basename "$EXEC")
         GAMESPLASH="$GAMEDIR/splash.png"
-        bind_directories "$WINEPREFIX/drive_c/users/root/AppData/Local/Ori and the Blind Forest" "$GAMEDIR/config"
+        LOCAL_CONFIG="$GAMEDIR/config/Ori"
+        WINEDEST="$WINEPREFIX/drive_c/users/root/AppData/Local/Ori and the Blind Forest"
+    fi
+
+    mkdir -p "$LOCAL_CONFIG"
+    mkdir -p "$(dirname "$WINEDEST")"
+
+    if [ ! -e "$WINEDEST" ]; then
+        ln -s "$LOCAL_CONFIG" "$WINEDEST"
+        echo "[CONFIG]: Binding $LOCAL_CONFIG -> $WINEDEST"
+    else
+        echo "[CONFIG]: $WINEDEST already exists, leaving intact"
     fi
 fi
 

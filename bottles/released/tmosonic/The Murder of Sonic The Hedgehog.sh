@@ -145,14 +145,15 @@ fi
 CONFIGDIRS=$(jq -r '.configdir[]?' "$GAMEDIR/bottle.json")
 if [ -n "$CONFIGDIRS" ] && [ -n "$WINEPREFIX" ]; then
     mkdir -p "$GAMEDIR/config"
-    
+
     while IFS= read -r dir; do
-        SRC="$WINEPREFIX/$dir"
-        if [ -d "$SRC" ]; then
-            echo "[CONFIG]: Binding $SRC -> $GAMEDIR/config"
-            bind_directories "$SRC" "$GAMEDIR/config"
-        else
-            echo "[CONFIG]: Warning: $SRC does not exist, skipping."
+        LOCAL="$GAMEDIR/config"
+        WINEDEST="$WINEPREFIX/$dir"
+        mkdir -p "$LOCAL"
+        mkdir -p "$(dirname "$WINEDEST")"
+        if [ ! -e "$WINEDEST" ]; then
+            ln -s "$LOCAL" "$WINEDEST"
+            echo "[CONFIG]: Binding $LOCAL -> $WINEDEST"
         fi
     done <<< "$CONFIGDIRS"
 fi
