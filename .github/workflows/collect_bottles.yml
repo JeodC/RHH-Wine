@@ -53,35 +53,37 @@ jobs:
               BOTTLE_DIRS+=("$(dirname "$json")")
             done < <(find bottles/released -type f -name 'bottle.json' -not -path '*/\.*' | sort -u)
           else
+            # Get changed files between last commit
             mapfile -t CHANGED < <(git diff --name-only HEAD^ HEAD)
+
             for file in "${CHANGED[@]}"; do
               [[ "$file" == bottles/released/* ]] || continue
-              dir="$(dirname "$file")"
+
+              filepath="$GITHUB_WORKSPACE/$file"
               candidate=""
 
-              # Walk up (including current dir)
-              while [[ "$dir" == *"bottles/released"* && "$dir" != "." ]]; do
+              # Walk up directories to find bottle.json
+              dir="$(dirname "$filepath")"
+              while [[ "$dir" != "$GITHUB_WORKSPACE" ]]; do
                 if [[ -f "$dir/bottle.json" ]]; then
-                  candidate="$dir"; break
+                  candidate="$dir"
+                  break
                 fi
                 dir="$(dirname "$dir")"
               done
 
-              # .sh next to bottle dir
-              if [[ -z "$candidate" ]]; then
-                parent="$(dirname "$file")"
-                if [[ -f "$parent/bottle.json" ]] && [[ "$file" == *.sh ]]; then
-                  candidate="$parent"
-                fi
-              fi
-
-              # .sh inside bottle dir
-              if [[ -z "$candidate" ]] && [[ -f "$dir/bottle.json" ]] && [[ "$file" == *.sh ]]; then
-                candidate="$dir"
+              # Special case: .sh file outside bottle folder
+              if [[ -z "$candidate" && "$file" == *.sh ]]; then
+                parent="$(dirname "$filepath")"
+                for sibling in "$parent"/*/; do
+                  [[ -f "$sibling/bottle.json" ]] && candidate="$sibling" && break
+                done
               fi
 
               [[ -n "$candidate" ]] && BOTTLE_DIRS+=("$candidate")
             done
+
+            # Remove duplicates
             mapfile -t BOTTLE_DIRS < <(printf '%s\n' "${BOTTLE_DIRS[@]}" | sort -u)
           fi
 
@@ -181,7 +183,7 @@ jobs:
 
       # ────────────────────── RELEASE ──────────────────────
       - name: Ensure release exists
-        if: ${{ steps.ports.outputs.ports != '' }}
+        if: ${{ steps.bottles.outputs.bottles != '' }}
         env:
           GH_TOKEN: ${{ secrets.TOKEN }}
         run: |
