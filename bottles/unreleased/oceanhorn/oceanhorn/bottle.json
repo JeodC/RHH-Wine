@@ -7,10 +7,18 @@
   ],
   "runner": "default",
   "deps": [
+	"d3dcompiler_43",
+	"d3dcompiler_47",
+	"d3dx10"
   ],
   "env": {
     "WINEDEBUG": "-all",
-    "WINEARCH": "win32"
+    "WINEARCH": "win64",
+    "WINEDLLOVERRIDES": "dxgi,d3d11,d3d10core=b;d3dcompiler_43,d3dcompiler_47,d3dx10_43=n;xinput1_3=b;winegstreamer=d",
+    "WINE_UDEV_DISABLE": "1",
+    "BOX64_DYNAREC_STRONGMEM": "2",
+    "BOX64_WAITIDLE": "1",
+    "BOX64_X11GLX": "1"
   },
   "configdir": [
   ],

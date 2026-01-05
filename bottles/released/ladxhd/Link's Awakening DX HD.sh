@@ -24,7 +24,7 @@ get_controls
 # ================================================
 
 GAMEDIR="/$directory/windows/ladxhd"
-EXEC="$GAMEDIR/data/Link's Awakening DX HD.exe"
+EXEC="$GAMEDIR/data/LADXHD.exe"
 BASE=$(basename "$EXEC")
 
 SPLASH="/$directory/windows/.winecellar/tools/splash"
@@ -36,6 +36,10 @@ cd "$GAMEDIR/data"
 # Splash
 chmod 777 "$SPLASH"
 "$SPLASH" "$GAMEDIR/splash.png" 10000 &
+
+if [ -f "Link's Awakening DX HD.exe" ]; then
+    mv "Link's Awakening DX HD.exe" "LADXHD.exe"
+fi
 
 # ================================================
 # WINE RUNNER CONFIG

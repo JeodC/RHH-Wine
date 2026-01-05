@@ -30,12 +30,14 @@ BASE=$(basename "$EXEC")
 SPLASH="/$directory/windows/.winecellar/tools/splash"
 LOG="$GAMEDIR/log.txt"
 
-cd "$GAMEDIR"
+cd "$GAMEDIR/data"
 > "$LOG" && exec > >(tee "$LOG") 2>&1
 
 # Splash
 chmod 777 "$SPLASH"
 "$SPLASH" "$GAMEDIR/splash.png" 50000 &
+
+export WINETRICKS_DL_CMD="curl -L -O"
 
 # ================================================
 # WINE RUNNER CONFIG
@@ -45,7 +47,7 @@ chmod 777 "$SPLASH"
 find_runner_dir() {
     # Find any folder under ../.winecellar that matches $1 (case-insensitive)
     # Sorts by version and takes the latest one (tail -n1)
-    find "../.winecellar" -maxdepth 1 -type d -iname "*$1*" | sort -V | tail -n1
+    find "/$directory/windows/.winecellar" -maxdepth 1 -type d -iname "*$1*" | sort -V | tail -n1
 }
 
 # Runner selection
@@ -54,7 +56,6 @@ WINEARCH=$(jq -r '.env.WINEARCH // "win64"' "$GAMEDIR/bottle.json")
 
 case "$RUNNER" in
     default)
-        # Use PATH wine/box64 with standard .wine prefix
         WINEPREFIX="$HOME/.wine"
         WINE="wine"
         ;;
@@ -77,7 +78,7 @@ esac
 # Append 32 to prefix if win32 architecture is required
 [ "$WINEARCH" = "win32" ] && WINEPREFIX="${WINEPREFIX}32"
 # Set BOX based on architecture
-BOX=$([ "$WINEARCH" = "win32" ] && echo "box86" || echo "box64")
+BOX=box64
 
 # Error checking for non-default runners and PATH setup
 if [ "$RUNNER" != "default" ]; then
@@ -93,11 +94,9 @@ echo "[LAUNCHER]: Using runner '$RUNNER' with WINEPREFIX='$WINEPREFIX' BOX='$BOX
 
 # Mapping of dependencies to a file that indicates installation
 declare -A DEP_DLL_MAP=(
-    [vcrun2022]="drive_c/windows/system32/vcruntime140_1.dll"
-    [dxvk]="drive_c/windows/system32/dxgi.dll"
-    [vkd3d-proton]="drive_c/windows/system32/d3d12.dll"
-    [vcrun2019]="drive_c/windows/system32/vcruntime140.dll"
-    [dotnet48]="drive_c/windows/Microsoft.NET/Framework64/v4.0.30319/mscorlib.dll"
+    [d3dx10]="drive_c/windows/system32/d3dx10_43.dll"
+    [d3dcompiler_43]="drive_c/windows/system32/d3dcompiler_43.dll"
+    [d3dcompiler_47]="drive_c/windows/system32/d3dcompiler_47.dll"
 )
 
 # Install dependencies from bottle.json
@@ -137,51 +136,6 @@ if command -v jq >/dev/null; then
 else
     echo "Error: jq not found"
     exit 1
-fi
-
-# Config Setup
-CONFIGDIRS=$(jq -r '.configdir[]?' "$GAMEDIR/bottle.json")
-if [ -n "$CONFIGDIRS" ] && [ -n "$WINEPREFIX" ]; then
-    mkdir -p "$GAMEDIR/config"
-    
-    while IFS= read -r dir; do
-        SRC="$WINEPREFIX/$dir"
-        mkdir -p "$SRC"
-        if [ -d "$SRC" ]; then
-            echo "[CONFIG]: Binding $SRC -> $GAMEDIR/config"
-            bind_directories "$SRC" "$GAMEDIR/config"
-        else
-            echo "[CONFIG]: Warning: $SRC does not exist, skipping."
-        fi
-    done <<< "$CONFIGDIRS"
-fi
-
-# ================================================
-# LOCAL SETUP
-# ================================================
-
-swapabxy() {
-    # Only use sdl_controllerconfig if SDL_GAMECONTROLLERCONFIG is empty
-    export SDL_GAMECONTROLLERCONFIG="${SDL_GAMECONTROLLERCONFIG:-$sdl_controllerconfig}"
-
-    if [ -z "$SDL_GAMECONTROLLERCONFIG" ]; then
-        echo "[swapabxy]: SDL_GAMECONTROLLERCONFIG is empty, cannot swap"
-        return
-    fi
-
-    if [ ! -x "$GAMEDIR/tools/swapabxy.py" ]; then
-        echo "[swapabxy]: $GAMEDIR/tools/swapabxy.py not executable"
-        return
-    fi
-
-    # Perform the swap
-    export SDL_GAMECONTROLLERCONFIG="$(echo "$SDL_GAMECONTROLLERCONFIG" | "$GAMEDIR/tools/swapabxy.py")"
-    echo "[swapabxy]: SDL_GAMECONTROLLERCONFIG after swap: $SDL_GAMECONTROLLERCONFIG"
-}
-
-# Swap buttons only if swapabxy.txt exists
-if [ -f "$GAMEDIR/tools/swapabxy.txt" ]; then
-    swapabxy
 fi
 
 # ================================================
