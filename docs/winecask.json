@@ -12,7 +12,9 @@
       "WINEDEBUG": "-all",
       "WINEARCH": "win64"
     },
-    "configdir": "drive_c/users/root/AppData/LocalLow/TheJaspel/Backpack Hero",
+    "configdir": [
+      "drive_c/users/root/AppData/LocalLow/TheJaspel/Backpack Hero"
+    ],
     "attr": {
       "title": "Backpack Hero",
       "desc": "The inventory management roguelike! Collect rare items, organize your backpack, and vanquish your foes!",
@@ -23,12 +25,12 @@
       "availability": "paid"
     },
     "source": {
-      "date_updated": "2025-11-15T14:54",
+      "date_updated": "2026-01-05T00:55",
       "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/backpackhero.zip",
       "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/backpackhero/backpackhero/screenshot.png",
       "readme_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/backpackhero/backpackhero/README.md",
-      "size": 362631,
-      "md5": "d17ed92d5be49acafe505014582dbbda"
+      "size": 364175,
+      "md5": "bc1ae94d6392a4ec8d28b2a83c7944ca"
     }
   },
   {
@@ -76,7 +78,9 @@
       "WINEDEBUG": "-all",
       "WINEARCH": "win64"
     },
-    "configdir": "drive_c/users/root/AppData/Local/D_D_21",
+    "configdir": [
+      "drive_c/users/root/AppData/Local/D_D_21"
+    ],
     "attr": {
       "title": "Decline's Drops",
       "desc": "Grab your punching gloves, put your clogs on and smash your way in the world of Decline's Drops, a fully hand-drawn platform-brawler full of weird frogs, bizarre chickens and odd hydras! Avenge your destroyed garden and defeat the 6 heads of the Eternal Corp.! If you can, that is.",
@@ -88,12 +92,12 @@
       "availability": "paid"
     },
     "source": {
-      "date_updated": "2025-11-15T16:46",
+      "date_updated": "2026-01-05T00:55",
       "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/declinesdrops.zip",
       "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/declinesdrops/declinesdrops/screenshot.png",
       "readme_url": "",
-      "size": 285114,
-      "md5": "c4e84b75b63b3343d7e325ce55a8e2a5"
+      "size": 285271,
+      "md5": "1e0b8c7cf837324818c716830310f5bd"
     }
   },
   {
@@ -111,7 +115,9 @@
       "WINEDEBUG": "-all",
       "WINEARCH": "win64"
     },
-    "configdir": "drive_c/users/root/AppData/Local/FieldsOfMistria",
+    "configdir": [
+      "drive_c/users/root/AppData/Local/FieldsOfMistria"
+    ],
     "attr": {
       "title": "Fields of Mistria",
       "desc": "Start your new life! Build the farm of your dreams as you discover a world brimming with possibilities. Magic, romance, and adventure all await you in this nostalgic farming / life sim RPG! NOTE: This game currently has a problem with invalid saves.",
@@ -123,12 +129,12 @@
       "availability": "paid"
     },
     "source": {
-      "date_updated": "2025-11-27T21:11",
+      "date_updated": "2026-01-05T00:55",
       "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/fieldsofmistria.zip",
       "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/fieldsofmistria/fieldsofmistria/screenshot.png",
       "readme_url": "",
-      "size": 657676,
-      "md5": "1e26067db7d10a9a0e641c50641dc6c8"
+      "size": 657748,
+      "md5": "0f2f8b30ff0a04a06fa78795c8bb9f9f"
     }
   },
   {
@@ -146,7 +152,9 @@
       "WINEDEBUG": "-all",
       "WINEARCH": "win64"
     },
-    "configdir": "drive_c/users/root/AppData/Local/Grapple_Dog",
+    "configdir": [
+      "drive_c/users/root/AppData/Local/Grapple_Dog"
+    ],
     "attr": {
       "title": "Grapple Dog",
       "desc": "Jump, Swing and Zip your way through colourful worlds and exciting challenges in this unique 2D action-platformer! Master the power of the Grapple on your adventure to save the world!",
@@ -158,12 +166,12 @@
       "availability": "paid"
     },
     "source": {
-      "date_updated": "2025-11-15T14:54",
+      "date_updated": "2026-01-05T00:55",
       "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/grappledog.zip",
       "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/grappledog/grappledog/screenshot.png",
       "readme_url": "",
-      "size": 301458,
-      "md5": "e79a8bb3fc683072c4f1aec4cfe46028"
+      "size": 301616,
+      "md5": "5b561ad71613595095419d02c2dbf4cf"
     }
   },
   {
@@ -181,7 +189,9 @@
       "WINEDEBUG": "-all",
       "WINEARCH": "win64"
     },
-    "configdir": "drive_c/users/root/AppData/Roaming/GrappleDog2",
+    "configdir": [
+      "drive_c/users/root/AppData/Roaming/GrappleDog2"
+    ],
     "attr": {
       "title": "Grapple Dogs : Cosmic Canines",
       "desc": "Swing, jump, and blast through dimensions in the follow-up to the critically-acclaimed 2D action-platformer Grapple Dog. Zip between action-packed worlds as Pablo and Luna team up to save the cosmos in their own unique ways.",
@@ -193,12 +203,12 @@
       "availability": "paid"
     },
     "source": {
-      "date_updated": "2025-11-15T15:35",
+      "date_updated": "2026-01-05T00:55",
       "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/grappledog2.zip",
       "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/grappledog2/grappledog2/screenshot.png",
       "readme_url": "",
-      "size": 301134,
-      "md5": "610de9022d0b0c8bb36bcbd5e947a39c"
+      "size": 301631,
+      "md5": "102b0e3b4ecd5529f92b7ed6d6c3df7b"
     }
   },
   {
@@ -248,7 +258,9 @@
       "WINEDEBUG": "-all",
       "WINEARCH": "win64"
     },
-    "configdir": "drive_c/users/root/AppData/Local/HoloCure",
+    "configdir": [
+      "drive_c/users/root/AppData/Local/HoloCure"
+    ],
     "attr": {
       "title": "HoloCure - Save the Fans!",
       "desc": "Play as your favorite Vtubers from Hololive! Fight, explore, and clear your way through armies of fans and save them from their mind-control in this unofficial free fan-game.",
@@ -260,12 +272,12 @@
       "availability": "free"
     },
     "source": {
-      "date_updated": "2025-11-15T16:46",
+      "date_updated": "2026-01-05T00:55",
       "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/holocure.zip",
       "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/holocure/holocure/screenshot.png",
       "readme_url": "",
-      "size": 400850,
-      "md5": "9fdee5ac4d7683a03e5654877e96173f"
+      "size": 401006,
+      "md5": "8d00f586725d6b16965b7d85c9e473f0"
     }
   },
   {
@@ -453,7 +465,9 @@
       "WINEDEBUG": "-all",
       "WINEARCH": "win64"
     },
-    "configdir": "drive_c/users/root/AppData/LocalLow/Andrew Shouldice/Secret Legend",
+    "configdir": [
+      "drive_c/users/root/AppData/LocalLow/Andrew Shouldice/Secret Legend"
+    ],
     "attr": {
       "title": "Tunic",
       "desc": "Explore a land filled with lost legends, ancient powers, and ferocious monsters in TUNIC, an isometric action game about a small fox on a big adventure.",
@@ -466,12 +480,12 @@
       "availability": "paid"
     },
     "source": {
-      "date_updated": "2025-11-15T14:54",
+      "date_updated": "2026-01-05T00:55",
       "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/tunic.zip",
       "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/tunic/tunic/screenshot.jpg",
       "readme_url": "",
-      "size": 780710,
-      "md5": "d95d6835bd60dc52fe8a6fe69c81fc92"
+      "size": 780869,
+      "md5": "6f5cdfbd473d344717097349e1fd8119"
     }
   },
   {
@@ -489,7 +503,9 @@
       "WINEDEBUG": "-all",
       "WINEARCH": "win64"
     },
-    "configdir": "drive_c/users/root/AppData/Local/Windswept",
+    "configdir": [
+      "drive_c/users/root/AppData/Local/Windswept"
+    ],
     "attr": {
       "title": "Windswept",
       "desc": "Marbles and Checkers need your help finding their way home after being swept away in a storm. In this 90s buddy-platformer there's a ton of stuff to do and even more to collect!",
@@ -501,12 +517,12 @@
       "availability": "paid"
     },
     "source": {
-      "date_updated": "2025-11-15T14:54",
+      "date_updated": "2026-01-05T00:55",
       "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/windswept.zip",
       "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/windswept/windswept/screenshot.png",
       "readme_url": "",
-      "size": 696079,
-      "md5": "bc68a07df50f913d0950ba8d107d2f7e"
+      "size": 696238,
+      "md5": "a3714f8256533919b9abb7a0cdb5038b"
     }
   }
 ]
