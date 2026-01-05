@@ -150,7 +150,7 @@ if [ -n "$CONFIGDIRS" ] && [ -n "$WINEPREFIX" ]; then
         LOCAL="$GAMEDIR/config"
         WINEDEST="$WINEPREFIX/$dir"
         mkdir -p "$LOCAL"
-        mkdir -p "$(dirname "$WINEDEST")"
+        rm -rf "$WINEDEST" && mkdir -p "$(dirname "$WINEDEST")"
         if [ ! -e "$WINEDEST" ]; then
             ln -s "$LOCAL" "$WINEDEST"
             echo "[CONFIG]: Binding $LOCAL -> $WINEDEST"

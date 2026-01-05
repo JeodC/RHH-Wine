@@ -153,7 +153,7 @@ if [ -n "$CONFIGDIRS" ] && [ -n "$WINEPREFIX" ]; then
     fi
 
     mkdir -p "$LOCAL_CONFIG"
-    mkdir -p "$(dirname "$WINEDEST")"
+    rm -rf "$WINEDEST" && mkdir -p "$(dirname "$WINEDEST")"
 
     if [ ! -e "$WINEDEST" ]; then
         ln -s "$LOCAL_CONFIG" "$WINEDEST"
