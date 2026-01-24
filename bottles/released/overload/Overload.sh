@@ -23,14 +23,14 @@ get_controls
 # LOCAL VARIABLES
 # ================================================
 
-GAMEDIR="/$directory/windows/bottledir"
-EXEC="$GAMEDIR/data/EXECNAME"
+GAMEDIR="/$directory/windows/overload"
+EXEC="$GAMEDIR/data/Overload.exe"
 BASE=$(basename "$EXEC")
 
 SPLASH="/$directory/windows/.winecellar/tools/splash"
 LOG="$GAMEDIR/log.txt"
 
-cd "$GAMEDIR"
+cd "$GAMEDIR/data"
 > "$LOG" && exec > >(tee "$LOG") 2>&1
 
 # Splash
@@ -183,12 +183,18 @@ if [ -f "$GAMEDIR/tools/swapabxy.txt" ]; then
     swapabxy
 fi
 
+# EXEC changes if olmod.exe is present
+if [ -f "$GAMEDIR/data/olmod.exe" ]; then
+    EXEC="$GAMEDIR/data/olmod.exe"
+    BASE=$(basename "$EXEC")
+fi
+
 # ================================================
 # RUN GAME
 # ================================================
 
 # Run the game
-$GPTOKEYB "$BASE" -c "$GAMEDIR/bottledir.gptk" &
+$GPTOKEYB "$BASE" -c "$GAMEDIR/overload.gptk" &
 $BOX $WINE "$EXEC"
 
 # Kill processes

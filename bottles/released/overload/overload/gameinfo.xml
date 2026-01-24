@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gamelist>
+	<game>
+		<path>./Overload.sh</path>
+		<name>Overload</name>
+		<desc>Revival Productions is proud to present the ultimate 6-degree-of-freedom shooter, OVERLOAD, from the creators of the classic game Descent.</desc>
+		<image>./overload/cover.png</image>
+		<releasedate>20180531</releasedate>
+		<developer>Revival Productions</developer>
+		<genre>Action</genre>
+	</game>
+</gamelist>

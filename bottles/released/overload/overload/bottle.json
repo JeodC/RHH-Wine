@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "name": "overload.zip",
+  "items": [
+    "Overload.sh",
+    "overload"
+  ],
+  "runner": "default",
+  "deps": [
+    "dxvk"
+  ],
+  "env": {
+    "WINEDEBUG": "-all",
+    "WINEARCH": "win64"
+  },
+  "configdir": [
+    "drive_c/users/root/AppData/LocalLow/Revival/Overload"
+  ],
+  "attr": {
+    "title": "Overload",
+    "desc": "Revival Productions is proud to present the ultimate 6-degree-of-freedom shooter, OVERLOAD, from the creators of the classic game Descent.",
+    "inst": "Add your game files to the data folder",
+    "genres": [
+	  "Action"
+    ],
+    "availability": "paid"
+  }
+}
