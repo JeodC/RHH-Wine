@@ -321,6 +321,42 @@
   },
   {
     "version": 1,
+    "name": "overload.zip",
+    "items": [
+      "Overload.sh",
+      "overload"
+    ],
+    "runner": "default",
+    "deps": [
+      "dxvk"
+    ],
+    "env": {
+      "WINEDEBUG": "-all",
+      "WINEARCH": "win64"
+    },
+    "configdir": [
+      "drive_c/users/root/AppData/LocalLow/Revival/Overload"
+    ],
+    "attr": {
+      "title": "Overload",
+      "desc": "Revival Productions is proud to present the ultimate 6-degree-of-freedom shooter, OVERLOAD, from the creators of the classic game Descent.",
+      "inst": "Add your game files to the data folder",
+      "genres": [
+        "Action"
+      ],
+      "availability": "paid"
+    },
+    "source": {
+      "date_updated": "2026-01-24T21:21",
+      "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/overload.zip",
+      "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/overload/overload/screenshot.jpg",
+      "readme_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/overload/overload/README.md",
+      "size": 344801,
+      "md5": "af0d55e6939e12022e593e10d7e90488"
+    }
+  },
+  {
+    "version": 1,
     "name": "ladxhd.zip",
     "items": [
       "Link's Awakening DX HD.sh",
