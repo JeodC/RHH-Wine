@@ -173,6 +173,73 @@ jobs:
 
             echo "Updated $CANONICAL_NAME in winecask.json"
           done
+          
+      # ────────────────────── SYNC DISK, JSON, AND RELEASE ──────────────────────
+      - name: Purge deleted or invalid bottles
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        run: |
+          set -euo pipefail
+          CASK_JSON="$GITHUB_WORKSPACE/docs/winecask.json"
+
+          echo "Validating bottles on disk..."
+
+          # Collect canonical names from disk
+          VALID_NAMES=()
+          while IFS= read -r json_file; do
+            dir="$(dirname "$json_file")"
+
+            SCREENSHOT=$(find "$dir" -maxdepth 1 \
+              \( -iname "screenshot*.png" -o -iname "screenshot*.jpg" -o -iname "screenshot*.jpeg" \) \
+              | head -n1)
+
+            [[ -n "$SCREENSHOT" ]] || {
+              echo "Skipping invalid bottle (no screenshot): $dir"
+              continue
+            }
+
+            NAME=$(jq -r '.name // empty' "$json_file")
+            [[ -n "$NAME" ]] && VALID_NAMES+=("$NAME")
+          done < <(find bottles/released -type f -name 'bottle.json')
+
+          # Nothing valid on disk → hard stop
+          [[ "${#VALID_NAMES[@]}" -gt 0 ]] || {
+            echo "No valid bottles found on disk; refusing to purge"
+            exit 0
+          }
+
+          # Prune ports.json (keep only disk-backed ports)
+          VALID_NAMES_JSON=$(printf '%s\n' "${VALID_NAMES[@]}" | jq -R . | jq -s .)
+
+          TMP=$(mktemp)
+          jq --argjson valid "$VALID_NAMES_JSON" \
+            'map(select(.name as $n | $valid | index($n)))' \
+            "$CASK_JSON" > "$TMP" && mv "$TMP" "$CASK_JSON"
+
+          echo "winecask.json synced (Valid bottles: ${#VALID_NAMES[@]})"
+
+          # Prune release assets
+          RELEASE_ID=$(gh api repos/${GITHUB_REPOSITORY}/releases/tags/bottles-latest \
+            --jq '.id' 2>/dev/null || true)
+
+          [[ -n "$RELEASE_ID" ]] || exit 0
+
+          mapfile -t ASSETS < <(
+            gh api repos/${GITHUB_REPOSITORY}/releases/$RELEASE_ID/assets \
+              --jq '.[] | "\(.name):\(.id)"'
+          )
+
+          for asset in "${ASSETS[@]}"; do
+            ASSET_NAME="${asset%%:*}"
+            ASSET_ID="${asset#*:}"
+
+            [[ "$ASSET_NAME" == *.zip ]] || continue
+
+            if ! printf '%s\n' "${VALID_NAMES[@]}" | grep -qx "$ASSET_NAME"; then
+              echo "Deleting orphaned asset: $ASSET_NAME"
+              gh api -X DELETE "repos/${GITHUB_REPOSITORY}/releases/assets/$ASSET_ID" || true
+            fi
+          done
 
       # ────────────────────── SORT ──────────────────────
       - name: Sort bottles by title
