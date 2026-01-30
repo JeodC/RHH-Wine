@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gamelist>
+	<game>
+		<path>./Pokemon Legends Mew.sh</path>
+		<name>Pokemon Legends : Mew</name>
+		<desc>Discover ancient Kanto in the prologue of Legends Mew. You can try out the mechanics, explore part of the map, and catch Pokémon in real time.</desc>
+		<image>./pkmnlegends_mew/cover.png</image>
+		<releasedate>20260130</releasedate>
+		<developer>Pablo Hijano</developer>
+		<genre>RPG</genre>
+	</game>
+</gamelist>
