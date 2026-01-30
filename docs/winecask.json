@@ -357,6 +357,42 @@
   },
   {
     "version": 1,
+    "name": "pkmnlegends_mew.zip",
+    "items": [
+      "Pokemon Legends Mew.sh",
+      "pkmnlegends_mew"
+    ],
+    "runner": "default",
+    "deps": [
+      "dxvk"
+    ],
+    "env": {
+      "WINEDEBUG": "-all",
+      "WINEARCH": "win64"
+    },
+    "configdir": [
+      "drive_c/users/root/AppData/LocalLow/PabloHijano/Legends Mew"
+    ],
+    "attr": {
+      "title": "Pokemon Legends : Mew",
+      "desc": "Discover ancient Kanto in the prologue of Legends Mew. You can try out the mechanics, explore part of the map, and catch Pokémon in real time.",
+      "inst": "Add your game files to the data folder",
+      "genres": [
+        "RPG"
+      ],
+      "availability": "free"
+    },
+    "source": {
+      "date_updated": "2026-01-30T23:12",
+      "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/pkmnlegends_mew.zip",
+      "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/pkmnlegends_mew/pkmnlegends_mew/screenshot.png",
+      "readme_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/pkmnlegends_mew/pkmnlegends_mew/README.md",
+      "size": 155131,
+      "md5": "5531ccd79cadfeab463617eb980640da"
+    }
+  },
+  {
+    "version": 1,
     "name": "ladxhd.zip",
     "items": [
       "Link's Awakening DX HD.sh",
