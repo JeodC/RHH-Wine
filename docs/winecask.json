@@ -388,7 +388,8 @@
       "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/pkmnlegends_mew/pkmnlegends_mew/screenshot.png",
       "readme_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/pkmnlegends_mew/pkmnlegends_mew/README.md",
       "size": 155131,
-      "md5": "5531ccd79cadfeab463617eb980640da"
+      "md5": "5531ccd79cadfeab463617eb980640da",
+      "last_commit": "[LEGENDSMEW] Add v1.0 release"
     }
   },
   {
