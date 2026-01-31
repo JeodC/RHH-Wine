@@ -99,33 +99,33 @@ async function loadcask() {
             const availabilityVal = availabilityDropdown.value;
 
             let countText = `${filtered.length} released bottles`;
-            if (genreVal !== 'all') countText += ` in genre "${genreDropdown.selectedOptions[0].text}"`;
-            if (availabilityVal !== 'all') countText += ` with availability "${availabilityDropdown.selectedOptions[0].text}"`;
+            if (genreVal !== 'all') countText += ` in "${genreDropdown.selectedOptions[0].text}"`;
             countDisplay.textContent = countText;
 
             container.innerHTML = filtered.map(bottle => {
                 const title = bottle.attr.title || bottle.name;
-                const desc = bottle.attr.desc || '';
                 const screenshot = bottle.source.screenshot_url || '';
-                const detailsHref = bottle.source.readme_url || '';
                 const downloadHref = bottle.source.download_url || '';
-
                 const filename = downloadHref ? downloadHref.split('/').pop() : '';
                 const downloadCount = downloadCounts[filename] || 0;
-
                 const genres = (bottle.attr?.genres || []).join(', ');
+                const lastCommit = bottle.source.last_commit;
+                const displayCommit = (!lastCommit || lastCommit.includes('Update winecask.json')) 
+                    ? "" 
+                    : lastCommit;
 
                 return `
                     <div class="bottle-card">
-                        <img src="${screenshot}" alt="${title} screenshot">
+                        <img src="${screenshot}" alt="${title} screenshot" loading="lazy">
                         <div class="bottle-info">
                             <h2 class="bottle-title">${title}</h2>
-                            <p class="bottle-desc">${desc}</p>
+                            <p class="bottle-desc">${bottle.attr.desc || ''}</p>
                             <div class="bottle-footer">
-                                <p class="download-count"><strong>Downloads:</strong> ${downloadCount}</p>
+                                <p class="download-count"><strong>Downloads since last update:</strong> ${downloadCount}</p>
                                 ${genres ? `<div class="bottle-genres">${genres}</div>` : ''}
+                                ${displayCommit ? `<div class="bottle-commit-banner" title="${displayCommit}">${displayCommit}</div>` : ''}
                                 <div class="bottle-buttons">
-                                    <a class="details-link" href="${detailsHref}" target="_blank" rel="noopener noreferrer">Details</a>
+                                    <a class="details-link" href="${bottle.source.readme_url || ''}" target="_blank" rel="noopener noreferrer">Details</a>
                                     <a class="download-link" href="${downloadHref}" target="_blank" rel="noopener noreferrer">Download</a>
                                 </div>
                             </div>

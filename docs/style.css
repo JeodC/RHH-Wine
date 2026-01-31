@@ -80,34 +80,75 @@ body {
 /* =========================
 	Instructions & Counter
 ========================= */
-.instructions {
-	text-align: center;
-	font-size: 0.95rem;
-	margin: 2rem auto;
-	max-width: 800px;
-	padding: 1rem 1.5rem;
-	background: var(--accent-bg);
-	border: 2px solid #666;
-	border-radius: var(--radius);
-	box-shadow: var(--shadow-md);
-	position: relative;
-}
-
-/* Accent stripe */
-.instructions::before {
-	content: "";
-	position: absolute;
-	inset: 0 auto 0 0;
-	width: 6px;
-	background: var(--primary);
-	border-radius: var(--radius) 0 0 var(--radius);
-}
-
 #bottle-count {
 	text-align: center;
 	font-weight: bold;
 	font-size: 1.8rem;
 	margin-bottom: 1.5rem;
+}
+.instructions-accordion {
+    margin: 2rem auto;
+    max-width: 800px;
+    background: var(--accent-bg);
+    border: 2px solid #666;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    overflow: hidden; /* Keeps the stripe inside */
+    position: relative;
+}
+
+/* Re-using your blue accent stripe */
+.instructions-accordion::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 6px;
+    background: var(--primary);
+    z-index: 1;
+}
+
+summary {
+    padding: 1rem;
+    cursor: pointer;
+    list-style: none; /* Removes default arrow in most browsers */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+summary::-webkit-details-marker {
+    display: none; /* Removes default arrow in Safari */
+}
+
+summary h2 {
+    margin: 0;
+    display: inline-block;
+}
+
+summary h2 small {
+    font-size: 0.9rem;
+    font-weight: normal;
+    color: var(--primary);
+    margin-left: 10px;
+}
+
+.instructions-content {
+    padding: 0 1.5rem 1.5rem 2rem; /* Left padding extra for the stripe */
+    text-align: center;
+}
+
+.path-list {
+    text-align: left;
+    margin: 1rem auto;
+    display: inline-block; /* Centers the block but keeps text left-aligned */
+    line-height: 1.8;
+}
+
+/* Optional: Slight highlight when open */
+details[open] summary {
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
 }
 
 /* =========================
@@ -278,4 +319,26 @@ body {
 .download-link:focus {
 	outline: 2px solid #ffcc00;
 	outline-offset: 2px;
+}
+
+/* =========================
+   Commit Banner
+========================= */
+.bottle-commit-banner {
+    margin-top: 0.8rem;
+    padding: 0.5rem 0.7rem;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius);
+    font-size: 0.8rem;
+    color: #333;
+    font-style: italic;
+    box-shadow: var(--shadow-inset);
+    border-left: 4px solid var(--primary);
+    
+    /* Truncate long messages */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    width: 100%;
 }

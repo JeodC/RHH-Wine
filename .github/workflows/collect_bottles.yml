@@ -138,6 +138,9 @@ jobs:
             README_URL=""
             [[ -n "$README" ]] && README_URL="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/${README#"$GITHUB_WORKSPACE/"}"
             DOWNLOAD_URL="https://github.com/${GITHUB_REPOSITORY}/releases/download/bottles-latest/${CANONICAL_NAME}"
+            
+            # Last commit message
+            COMMIT_MSG=$(git log -1 --format=%s -- "$BOTTLE_DIR")
 
             # Load full original JSON
             ORIGINAL_JSON=$(cat "$BOTTLE_JSON")
@@ -162,7 +165,8 @@ jobs:
               --arg screenshot_url "$SCREENSHOT_URL" \
               --arg size "$SIZE" \
               --arg md5 "$MD5" \
-              '$original + {source: {date_updated: $date_updated, download_url: $download_url, screenshot_url: $screenshot_url, readme_url: $readme_url, size: ($size|tonumber), md5: $md5}}'
+              --arg commit_msg "$COMMIT_MSG" \
+              '$original + {source: {date_updated: $date_updated, download_url: $download_url, screenshot_url: $screenshot_url, readme_url: $readme_url, size: ($size|tonumber), md5: $md5, last_commit: $commit_msg}}'
             )
 
             # Replace entry in ports.json using canonical name
