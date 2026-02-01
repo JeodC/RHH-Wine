@@ -57,10 +57,20 @@ body {
 .social-links ul {
 	display: flex;
 	justify-content: center;
+	flex-wrap: wrap;
 	gap: 1.5rem;
 	list-style: none;
 	padding: 0;
 	margin: 1rem 0 0;
+}
+
+
+.social-links .nav-separator {
+	flex-basis: 100%;
+	height: 1px;
+	background: rgba(0, 0, 0, 0.25);
+	margin: 0.25rem 0;
+	list-style: none;
 }
 
 .social-links a {
