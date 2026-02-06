@@ -600,5 +600,43 @@
       "size": 713196,
       "md5": "72c7a83a526faa723780e57db289c7b2"
     }
+  },
+  {
+    "version": 1,
+    "name": "yamikids.zip",
+    "items": [
+      "Yami Kids.sh",
+      "yamikids"
+    ],
+    "runner": "default",
+    "deps": [
+      "dxvk",
+      "vcrun2022"
+    ],
+    "env": {
+      "WINEDEBUG": "-all",
+      "WINEARCH": "win64"
+    },
+    "configdir": [
+      "drive_c/users/root/AppData/Local/yami_kids"
+    ],
+    "attr": {
+      "title": "Yami Kids",
+      "desc": "Play as \"The Yami Twins\" and uncover the mystery behind your family's killers. Yami Kids is a tale of tragedy, familial bonds, and revenge. Face off against trainers in \"Shadow Duels\", and make contracts with Oni to aid you on your quest.",
+      "inst": "Add your game files to the data folder",
+      "genres": [
+        "RPG"
+      ],
+      "availability": "paid"
+    },
+    "source": {
+      "date_updated": "2026-02-06T23:00",
+      "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/yamikids.zip",
+      "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/yamikids/yamikids/screenshot.png",
+      "readme_url": "",
+      "size": 124274,
+      "md5": "6ea69677de287adcb9700fa3ebab5b82",
+      "last_commit": "[YAMIKIDS] Release"
+    }
   }
 ]
