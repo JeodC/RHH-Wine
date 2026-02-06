@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "name": "yamikids.zip",
+  "items": [
+    "Yami Kids.sh",
+    "yamikids"
+  ],
+  "runner": "default",
+  "deps": [
+    "dxvk",
+    "vcrun2022"
+  ],
+  "env": {
+    "WINEDEBUG": "-all",
+    "WINEARCH": "win64"
+  },
+  "configdir": [
+    "drive_c/users/root/AppData/Local/yami_kids"
+  ],
+  "attr": {
+    "title": "Yami Kids",
+    "desc": "Play as \"The Yami Twins\" and uncover the mystery behind your family's killers. Yami Kids is a tale of tragedy, familial bonds, and revenge. Face off against trainers in \"Shadow Duels\", and make contracts with Oni to aid you on your quest.",
+    "inst": "Add your game files to the data folder",
+    "genres": [
+      "RPG"
+    ],
+    "availability": "paid"
+  }
+}
