@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gamelist>
+	<game>
+		<path>./Tearscape.sh</path>
+		<name>Tearscape</name>
+		<desc>As a hunter, you explore a dark, interconnected world filled with dungeons, relying on precise combat to survive. Battle grotesque monsters, expand your arsenal, and uncover hidden paths in a non-linear, pixel art journey.</desc>
+		<image>./tearscape/cover.png</image>
+		<thumbnail>./tearscape/thumb.png</thumbnail>
+		<releasedate>20260202</releasedate>
+		<developer>NERDS TAKE OVER</developer>
+		<genre>Action, Adventure, Indie, RPG</genre>
+	</game>
+</gamelist>
