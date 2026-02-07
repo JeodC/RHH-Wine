@@ -394,6 +394,43 @@
   },
   {
     "version": 1,
+    "name": "tearscape.zip",
+    "items": [
+      "Tearscape.sh",
+      "tearscape"
+    ],
+    "runner": "default",
+    "deps": [
+      "dxvk",
+      "dotnetdesktop8"
+    ],
+    "env": {
+      "WINEDEBUG": "-all",
+      "WINEARCH": "win64",
+      "WINETRICKS_DOWNLOADER": "curl"
+    },
+    "configdir": [
+      "drive_c/users/root/AppData/Roaming/Tearscape"
+    ],
+    "attr": {
+      "title": "Tearscape",
+      "desc": "As a hunter, you explore a dark, interconnected world filled with dungeons, relying on precise combat to survive. Battle grotesque monsters, expand your arsenal, and uncover hidden paths in a non-linear, pixel art journey.",
+      "inst": "Add your game files to the data folder",
+      "genres": [],
+      "availability": "paid"
+    },
+    "source": {
+      "date_updated": "2026-02-07T01:52",
+      "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/tearscape.zip",
+      "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/tearscape/tearscape/screenshot.png",
+      "readme_url": "",
+      "size": 494310,
+      "md5": "9112527a17b00acf485ca60002fd4aaa",
+      "last_commit": "[TEARSCAPE] Release"
+    }
+  },
+  {
+    "version": 1,
     "name": "ladxhd.zip",
     "items": [
       "Link's Awakening DX HD.sh",
