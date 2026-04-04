@@ -431,44 +431,6 @@
   },
   {
     "version": 1,
-    "name": "ladxhd.zip",
-    "items": [
-      "Link's Awakening DX HD.sh",
-      "ladxhd"
-    ],
-    "runner": "default",
-    "deps": [
-      "dxvk",
-      "dotnetdesktop6"
-    ],
-    "env": {
-      "WINEDEBUG": "-all",
-      "WINEARCH": "win64",
-      "WINETRICKS_DOWNLOADER": "curl",
-      "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT": "1",
-      "WINE_CASE_SENSITIVE": "0"
-    },
-    "configdir": [
-      "drive_c/users/root/AppData/Local/Zelda_LA"
-    ],
-    "attr": {
-      "title": "The Legend of Zelda : Link's Awakening DX HD",
-      "desc": "Play Link's Awakening with modern QoL features!",
-      "inst": "Add your game files to the data folder",
-      "genres": [],
-      "availability": "free"
-    },
-    "source": {
-      "date_updated": "2026-01-25T18:24",
-      "download_url": "https://github.com/JeodC/RHH-Wine/releases/download/bottles-latest/ladxhd.zip",
-      "screenshot_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/ladxhd/ladxhd/screenshot.png",
-      "readme_url": "https://raw.githubusercontent.com/JeodC/RHH-Wine/main/bottles/released/ladxhd/ladxhd/README.md",
-      "size": 385649,
-      "md5": "b24504cfcae60c12635a9b89e5af1379"
-    }
-  },
-  {
-    "version": 1,
     "name": "tmosonic.zip",
     "items": [
       "The Murder of Sonic The Hedgehog.sh",
