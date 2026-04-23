@@ -27,7 +27,7 @@ jobs:
       contents: write
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
@@ -301,7 +301,27 @@ jobs:
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
           git add docs/winecask.json
-          if ! git diff --cached --quiet; then
-            git commit -m "Update winecask.json"
-            git push
+          if git diff --cached --quiet; then
+            echo "No winecask.json changes to commit"
+            exit 0
           fi
+          git commit -m "Update winecask.json"
+
+          # Retry fetch+rebase+push to absorb concurrent pushes from other
+          # workflows hitting the same branch.
+          for attempt in 1 2 3 4 5; do
+            git fetch origin "$GITHUB_REF_NAME"
+            if ! git rebase "origin/$GITHUB_REF_NAME"; then
+              echo "::error::rebase failed on attempt $attempt"
+              git rebase --abort || true
+              exit 1
+            fi
+            if git push origin "HEAD:$GITHUB_REF_NAME"; then
+              echo "Pushed on attempt $attempt"
+              exit 0
+            fi
+            echo "Push rejected on attempt $attempt; retrying..."
+            sleep $((attempt * 3))
+          done
+          echo "::error::Push failed after 5 attempts"
+          exit 1
