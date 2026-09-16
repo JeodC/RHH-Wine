@@ -191,7 +191,7 @@ fi
 # ================================================
 
 # Run the game
-$GPTOKEYB "$BASE" -c "$GAMEDIR/cuphead.gptk" &
+$GPTOKEYB "$BASE" -c "$GAMEDIR/tunic.gptk" &
 $BOX $WINE "$EXEC"
 
 # Kill processes
